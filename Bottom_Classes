@@ -1,0 +1,109 @@
+public class Bottom_Classes {
+    public static class Car extends Land_Transportation{
+        private int trunkSpace;
+
+        public void setTrunkSpace(int trunkSpace) { this.trunkSpace = trunkSpace; }
+        public int getTrunkSpace() { return this.trunkSpace; }
+
+        @Override
+        public String toString() {
+            return super.toString() + String.format("%25s%7d%3s", "Trunk Space:", getTrunkSpace(), "m^3");
+        }
+    }
+
+    public static class Bus extends Land_Transportation{
+        private String startBusStop;
+
+        public void setStartBusStop(String busStop) { this.startBusStop = startBusStop; }
+
+        public String getStartBusStop() { return this.startBusStop; }
+
+        @Override
+        public String toString() {
+            return super.toString() + String.format("%25s %10s", "Starting Stop", getStartBusStop());
+        }
+    }
+    public static class Train extends Land_Transportation{
+        private String departureStation;
+
+        public void setDepartureStation(String departureStation) { this.departureStation = departureStation; }
+        public String getDepartureStation() { return this.departureStation; }
+
+        @Override
+        public String toString() {
+            return super.toString() + String.format("%25s %10s", "Departure Stop:", getDepartureStation());
+        }
+    }
+
+    public static class Bike extends Land_Transportation{
+        private String pickupLocation;
+
+        public void setPickupLocation(String pickupLocation) { this.pickupLocation = pickupLocation; }
+        public String getPickupLocation() { return this.pickupLocation; }
+
+        @Override
+        public String toString() {
+            return super.toString() + String.format("%25s %10s", "Bike Pickup Location", getPickupLocation());
+        }
+    }
+
+    public static class Plane extends Air_Transportation {
+        private String terminal;
+
+        public void setTerminal(String terminal) { this.terminal = terminal; }
+        public String getTerminal() { return this.terminal; }
+
+        @Override
+        public String toString() {
+            return super.toString() + String.format("%25s %10s", "Departure Terminal", getTerminal());
+        }
+    }
+
+    public static class Heli extends Air_Transportation {
+        private int weight_limit;
+
+        public void setWeight_limit(int weight_limit) { this.weight_limit = weight_limit; }
+        public int getWeight_limit() { return this.weight_limit; }
+
+        @Override
+        public String toString() {
+            return super.toString() + String.format("%25s %10s", "Weight-Limit", getWeight_limit());
+        }
+    }
+
+    public static class Boat extends Water_Transportation {
+        private int weight_limit;
+
+        public void setWeight_limit(int weight_limit) { this.weight_limit = weight_limit; }
+        public int getWeight_limit() { return this.weight_limit; }
+
+        @Override
+        public String toString() {
+            return super.toString() + String.format("%25s %10d", "Max carry-weight", getWeight_limit());
+        }
+    }
+
+    public static class Submarine extends Water_Transportation {
+        private int depth;
+
+        public void setDepth(int depth) { this.depth = depth; }
+        public int getDepth() { return this.depth; }
+
+        @Override
+        public String toString() {
+            return super.toString() + String.format("%25s %10d", "Travel-Depth:", getDepth());
+        }
+    }
+
+    public static class Ship extends Water_Transportation {
+        private String hull_size;
+
+        public void setHull_size(String hull_size) { this.hull_size = hull_size; }
+        public String getHull_size() { return this.hull_size; }
+
+        @Override
+        public String toString() {
+            return super.toString() + String.format("%25s %10s", "Hull Size:", getHull_size());
+        }
+    }
+}
