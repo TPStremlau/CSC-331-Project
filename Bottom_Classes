@@ -74,6 +74,12 @@ public class Bottom_Classes {
     public static class Boat extends Water_Transportation {
         private int weight_limit;
 
+        Boat(int weight_limit,String dock, String loadingTime, String marina,String rentalOrPurchase,double purchasePrice,
+             double rentalPrice, double averageSpeed, int numPassengers){
+            super(dock,loadingTime,marina,rentalOrPurchase,purchasePrice,rentalPrice,averageSpeed,numPassengers);
+            this.weight_limit = weight_limit;
+        }
+
         public void setWeight_limit(int weight_limit) { this.weight_limit = weight_limit; }
         public int getWeight_limit() { return this.weight_limit; }
 
@@ -86,6 +92,12 @@ public class Bottom_Classes {
     public static class Submarine extends Water_Transportation {
         private int depth;
 
+        Submarine(int depth,String dock, String loadingTime, String marina,String rentalOrPurchase,double purchasePrice,
+              double rentalPrice, double averageSpeed, int numPassengers){
+        super(dock,loadingTime,marina,rentalOrPurchase,purchasePrice,rentalPrice,averageSpeed,numPassengers);
+        this.depth=depth;
+        }
+
         public void setDepth(int depth) { this.depth = depth; }
         public int getDepth() { return this.depth; }
 
@@ -97,6 +109,12 @@ public class Bottom_Classes {
 
     public static class Ship extends Water_Transportation {
         private String hull_size;
+
+        Ship(String hull_size, String dock, String loadingTime, String marina,String rentalOrPurchase,double purchasePrice,
+         double rentalPrice, double averageSpeed, int numPassengers){
+        super(dock,loadingTime,marina,rentalOrPurchase,purchasePrice,rentalPrice,averageSpeed,numPassengers);
+        this.hull_size = hull_size;
+        }
 
         public void setHull_size(String hull_size) { this.hull_size = hull_size; }
         public String getHull_size() { return this.hull_size; }
