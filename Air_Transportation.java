@@ -1,10 +1,10 @@
-public class AirTransportation extends Transportation{
+public class Air_Transportation extends Transportation{
     private String airport;
     private String departureTime;
     private String airline;
     private String arrivalTime;
 
-    AirTransportation(String airport,String airline, String departureTime, String arrivalTime,String rentalOrPurchase,
+    Air_Transportation(String airport,String airline, String departureTime, String arrivalTime,String rentalOrPurchase,
                       double purchasePrice, double rentalPrice, double averageSpeed, int numPassengers){
         super(rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed, numPassengers);
         this.airport = airport;
