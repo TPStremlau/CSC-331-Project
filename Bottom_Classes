@@ -49,9 +49,24 @@ public class Bottom_Classes {
 
     public static class Plane extends Air_Transportation {
         private String terminal;
+        private int carryOnLimit;
+        private double maxLuggageWeight;
 
-        public void setTerminal(String terminal) { this.terminal = terminal; }
-        public String getTerminal() { return this.terminal; }
+        Plane(String terminal,int carryOnLimit,double maxLuggageWeight,String rentalOrPurchase,double purchasePrice, double rentalPrice,
+          double averageSpeed, int numPassengers, String airline, String airport, String departureTime, String arrivalTime){
+        super(airport, airline, departureTime, arrivalTime,rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed, numPassengers);
+        this.terminal = terminal;
+        this.carryOnLimit = carryOnLimit;
+        this.maxLuggageWeight = maxLuggageWeight;
+    }
+
+        public String getTerminal() {return this.terminal;}
+        public int getCarryOnLimit() {return this.carryOnLimit;}
+        public double getMaxLuggageWeight() {return this.maxLuggageWeight;}
+
+        public void setTerminal(String terminal) {this.terminal = terminal;}
+        public void setAirline(int carryOnLimit) {this.carryOnLimit = carryOnLimit;}
+        public void setAirport(double maxLuggageWeight) {this.maxLuggageWeight = maxLuggageWeight;}
 
         @Override
         public String toString() {
@@ -62,13 +77,20 @@ public class Bottom_Classes {
     public static class Heli extends Air_Transportation {
         private int weight_limit;
 
+        Heli(int weight_limit,int carryOnLimit,double maxLuggageWeight,String rentalOrPurchase,double purchasePrice,
+             double rentalPrice, double averageSpeed, int numPassengers, String airline, String airport,
+             String departureTime, String arrivalTime){
+        super(airport, airline, departureTime, arrivalTime,rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed,
+                numPassengers);
+        this.weight_limit=weight_limit;
+    }
         public void setWeight_limit(int weight_limit) { this.weight_limit = weight_limit; }
         public int getWeight_limit() { return this.weight_limit; }
 
         @Override
         public String toString() {
             return super.toString() + String.format("%25s %10s", "Weight-Limit", getWeight_limit());
-        }
+    }
     }
 
     public static class Boat extends Water_Transportation {
