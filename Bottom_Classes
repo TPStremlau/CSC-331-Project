@@ -2,6 +2,12 @@ public class Bottom_Classes {
     public static class Car extends Land_Transportation{
         private int trunkSpace;
 
+        Car(String rentalOrPurchase, double purchasePrice, double rentalPrice, double averageSpeed,
+            int numPassengers, String fuelType, int trunkSpace) {
+            super(rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed, numPassengers, fuelType);
+            this.trunkSpace = trunkSpace;
+        }
+        
         public void setTrunkSpace(int trunkSpace) { this.trunkSpace = trunkSpace; }
         public int getTrunkSpace() { return this.trunkSpace; }
 
@@ -13,6 +19,13 @@ public class Bottom_Classes {
 
     public static class Bus extends Land_Transportation{
         private String startBusStop;
+
+        Bus(String rentalOrPurchase, double purchasePrice, double rentalPrice, double averageSpeed,
+            int numPassengers, String fuelType, String startBusStop) {
+            super(rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed, numPassengers, fuelType);
+            this.startBusStop = startBusStop;
+
+        }
 
         public void setStartBusStop(String busStop) { this.startBusStop = startBusStop; }
 
@@ -26,6 +39,13 @@ public class Bottom_Classes {
     public static class Train extends Land_Transportation{
         private String departureStation;
 
+        Train(String rentalOrPurchase, double purchasePrice, double rentalPrice, double averageSpeed,
+              int numPassengers, String fuelType, String departureStation) {
+            super(rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed, numPassengers, fuelType);
+            this.departureStation = departureStation;
+
+        }
+
         public void setDepartureStation(String departureStation) { this.departureStation = departureStation; }
         public String getDepartureStation() { return this.departureStation; }
 
@@ -37,6 +57,13 @@ public class Bottom_Classes {
 
     public static class Bike extends Land_Transportation{
         private String pickupLocation;
+
+        Bike(String rentalOrPurchase, double purchasePrice, double rentalPrice, double averageSpeed,
+             int numPassengers, String fuelType, String pickupLocation) {
+            super(rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed, numPassengers, fuelType);
+            this.pickupLocation = pickupLocation;
+
+        }
 
         public void setPickupLocation(String pickupLocation) { this.pickupLocation = pickupLocation; }
         public String getPickupLocation() { return this.pickupLocation; }
@@ -53,12 +80,12 @@ public class Bottom_Classes {
         private double maxLuggageWeight;
 
         Plane(String terminal,int carryOnLimit,double maxLuggageWeight,String rentalOrPurchase,double purchasePrice, double rentalPrice,
-          double averageSpeed, int numPassengers, String airline, String airport, String departureTime, String arrivalTime){
-        super(airport, airline, departureTime, arrivalTime,rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed, numPassengers);
-        this.terminal = terminal;
-        this.carryOnLimit = carryOnLimit;
-        this.maxLuggageWeight = maxLuggageWeight;
-    }
+              double averageSpeed, int numPassengers, String airline, String airport, String departureTime, String arrivalTime){
+            super(airport, airline, departureTime, arrivalTime,rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed, numPassengers);
+            this.terminal = terminal;
+            this.carryOnLimit = carryOnLimit;
+            this.maxLuggageWeight = maxLuggageWeight;
+        }
 
         public String getTerminal() {return this.terminal;}
         public int getCarryOnLimit() {return this.carryOnLimit;}
@@ -77,20 +104,20 @@ public class Bottom_Classes {
     public static class Heli extends Air_Transportation {
         private int weight_limit;
 
-        Heli(int weight_limit,int carryOnLimit,double maxLuggageWeight,String rentalOrPurchase,double purchasePrice,
+        Heli(int weight_limit, String rentalOrPurchase, double purchasePrice,
              double rentalPrice, double averageSpeed, int numPassengers, String airline, String airport,
              String departureTime, String arrivalTime){
-        super(airport, airline, departureTime, arrivalTime,rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed,
-                numPassengers);
-        this.weight_limit=weight_limit;
-    }
+            super(airport, airline, departureTime, arrivalTime,rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed,
+                    numPassengers);
+            this.weight_limit = weight_limit;
+        }
         public void setWeight_limit(int weight_limit) { this.weight_limit = weight_limit; }
         public int getWeight_limit() { return this.weight_limit; }
 
         @Override
         public String toString() {
             return super.toString() + String.format("%25s %10s", "Weight-Limit", getWeight_limit());
-    }
+        }
     }
 
     public static class Boat extends Water_Transportation {
@@ -115,9 +142,9 @@ public class Bottom_Classes {
         private int depth;
 
         Submarine(int depth,String dock, String loadingTime, String marina,String rentalOrPurchase,double purchasePrice,
-              double rentalPrice, double averageSpeed, int numPassengers){
-        super(dock,loadingTime,marina,rentalOrPurchase,purchasePrice,rentalPrice,averageSpeed,numPassengers);
-        this.depth=depth;
+                  double rentalPrice, double averageSpeed, int numPassengers){
+            super(dock,loadingTime,marina,rentalOrPurchase,purchasePrice,rentalPrice,averageSpeed,numPassengers);
+            this.depth=depth;
         }
 
         public void setDepth(int depth) { this.depth = depth; }
@@ -133,9 +160,9 @@ public class Bottom_Classes {
         private String hull_size;
 
         Ship(String hull_size, String dock, String loadingTime, String marina,String rentalOrPurchase,double purchasePrice,
-         double rentalPrice, double averageSpeed, int numPassengers){
-        super(dock,loadingTime,marina,rentalOrPurchase,purchasePrice,rentalPrice,averageSpeed,numPassengers);
-        this.hull_size = hull_size;
+             double rentalPrice, double averageSpeed, int numPassengers){
+            super(dock,loadingTime,marina,rentalOrPurchase,purchasePrice,rentalPrice,averageSpeed,numPassengers);
+            this.hull_size = hull_size;
         }
 
         public void setHull_size(String hull_size) { this.hull_size = hull_size; }
