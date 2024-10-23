@@ -1,7 +1,7 @@
 public class Land_Transportation extends Transportation {
     private String fuelType;
 
-    Land_Transportation(String rentalOrPurchase, double purchasePrice, double rentalPrice, double averageSpeed,
+    public Land_Transportation(String rentalOrPurchase, double purchasePrice, double rentalPrice, double averageSpeed,
             int numPassengers, String fuelType){
         super(rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed, numPassengers);
         this.fuelType = fuelType;
