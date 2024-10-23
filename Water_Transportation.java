@@ -3,7 +3,7 @@ public class Water_Transportation extends Transportation{
     private String loadingTime;
     private String marina;
 
-    Water_Transportation(String dock, String loadingTime, String marina,String rentalOrPurchase,double purchasePrice,
+    public Water_Transportation(String dock, String loadingTime, String marina,String rentalOrPurchase,double purchasePrice,
                          double rentalPrice, double averageSpeed, int numPassengers){
         super(rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed, numPassengers);
         this.dock = dock;
@@ -17,5 +17,10 @@ public class Water_Transportation extends Transportation{
     public void setDock(String dock){this.dock = dock;}
     public void setLoadingTime(String loadingTime) {this.loadingTime=loadingTime;}
     public void setMarina(String marina) { this.marina=marina;}
+
+    public String toString() {
+        return super.toString() + String.format("%25s %10s %25s %10s %25s %10s", "Dock:", getDock(), 
+                                                "Loading Time:", getLoadingTime(), "Marina:", getMarina());
+    }
 
 }
