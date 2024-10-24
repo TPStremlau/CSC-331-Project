@@ -47,10 +47,13 @@ public class Driver {
         land_list[2] = bus;
         land_list[3] = bike;
 
-        Transportation[] water_list = new Transportation[4];
+        Transportation[] water_list = new Transportation[3];
         water_list[0] = boat;
         water_list[1] = sub;
         water_list[2] = ship;
+
+        System.out.println("Here are all the options:");
+        print_lists(air_list,land_list,water_list);
 
         boolean cont_loop = true;
 
@@ -60,13 +63,11 @@ public class Driver {
             String user_input = trans_type.nextLine();
 
             if (user_input.equalsIgnoreCase("land")) {
+                print_specific_list(land_list);
                 System.out.println();
             }
             if (user_input.equalsIgnoreCase("air")) {
-                for (int i = 0; i < 4; i++) {
-                    System.out.println(air_list[i].getClass()); //to get the name of the air trans.
-                    System.out.println(air_list[i].toString()); //display info abt each class
-                }
+                print_specific_list(air_list);
                 System.out.println("Which transportation would you like to purchase?");
                 Scanner user_ticket = new Scanner(System.in);
                 String user_input2 = user_ticket.nextLine();
@@ -90,6 +91,7 @@ public class Driver {
             }
 
             if (user_input.equalsIgnoreCase("water")) {
+                print_specific_list(water_list);
                 System.out.println();
             }
 
@@ -118,21 +120,23 @@ public class Driver {
     }
 
     public static void print_lists(Transportation[] air_list, Transportation[] land_list, Transportation[] water_list) {
-
         System.out.println("\nHere are the Air transportation methods:");
         for (Transportation air_transportation : air_list) {
+            System.out.println(air_transportation.getName());
             System.out.println(air_transportation);
         }
         ;
 
         System.out.println("\nHere are the Land transportation methods:");
         for (Transportation land_transportation : land_list) {
+            System.out.println(land_transportation.getName());
             System.out.println(land_transportation);
         }
         ;
 
         System.out.println("\nHere are the Water transportation methods:");
         for (Transportation water_transportation : water_list) {
+            System.out.println(water_transportation.getName());
             System.out.println(water_transportation);
         }
         ;
@@ -140,6 +144,7 @@ public class Driver {
 
     public static void print_specific_list(Transportation[] specific_list) {
         for (Transportation transportation : specific_list) {
+            System.out.println(transportation.getName());
             System.out.println(transportation);
         }
     }
