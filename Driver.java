@@ -2,19 +2,39 @@ import java.util.Scanner;
 
 public class Driver {
     public static void main(String[] args){
+        
+        // initialize air instances
         Bottom_Classes.Plane plane1 = new Bottom_Classes.Plane("Terminal 1", 25, 30.00,
-                "Purchase", 600_000.00, 200, 300.00, 300,
+                600_000.00, 200, 300.00, 300,
                 "Delta", "RDU", "6:00AM", "10:00AM");
-        Bottom_Classes.Heli helicopter1 = new Bottom_Classes.Heli(300, "Purchase", 
+        Bottom_Classes.Heli helicopter1 = new Bottom_Classes.Heli(300,
                 25, 30.00, 600_000.00, 6, "United", "JFK"
                 , "6:00AM", "10:00AM");
-        Bottom_Classes.Dirigible dirigible1 = new Bottom_Classes.Dirigible(500, "Purchase", 
+        Bottom_Classes.Dirigible dirigible1 = new Bottom_Classes.Dirigible(500,
                 30.00, 600_000.00, 45_000.00, 300,
                 "Delta", "RDU", "6:00AM", "10:00AM");
-        Bottom_Classes.Hot_Air_Balloon hotAirBalloon = new Bottom_Classes.Hot_Air_Balloon(2000,
-                "Purchase", 30.00,
-                25, 600_000.00, 8, "Delta", "RDU", 
+        Bottom_Classes.Hot_Air_Balloon hotAirBalloon = new Bottom_Classes.Hot_Air_Balloon(2000, 30.00,
+                25, 600_000.00, 8, "Delta", "RDU",
                 "6:00AM", "10:00AM");
+
+        // initialize land instances
+        Bottom_Classes.Car car = new Bottom_Classes.Car(10, 200,
+                120, 6, "Diesel", 4);
+        Bottom_Classes.Train train = new Bottom_Classes.Train(30, 20_000,
+                180, 120, "Electric", "Hamburg Station");
+        Bottom_Classes.Bus bus = new Bottom_Classes.Bus(20, 2000, 60,
+                40, "Biodiesel", "Rigel Road Stop");
+        Bottom_Classes.Bike bike = new Bottom_Classes.Bike(50, 10,
+                20, 1, "None", "UNCW Bike Store");
+
+        // initialize water instances
+        Bottom_Classes.Boat boat = new Bottom_Classes.Boat(200, "Dock C", "5 min",
+                "West View Yacht Center", 20, 500, 40,
+                12);
+        Bottom_Classes.Submarine sub = new Bottom_Classes.Submarine(200, "Dock A", "50min",
+                "Carolina Yacht Club", 4000, 1_200_000, 35, 40);
+        Bottom_Classes.Ship ship = new Bottom_Classes.Ship("Large", "Dock G", "2 Days", 
+                "Hamburg Port", 500, 2_000_000, 50, 5000);
 
         Transportation[] air_list = new Transportation[4];
         air_list[0] = plane1;
