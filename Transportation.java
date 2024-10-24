@@ -1,3 +1,5 @@
+
+
 public class Transportation {
     private double purchasePrice;
     private double rentalPrice;
@@ -25,12 +27,19 @@ public class Transportation {
 
     @Override
     public String toString(){
-        return String.format("%-25s%-10f%-25s%-10f%-25s%-10f%-25s%-10d",
-                "Ticket purchase price:",getPurchasePrice(),"Rental price:",getRentalPrice(),"Average speed:",
-                getAverageSpeed(),"Num of passengers:",getNumPassengers());
+        return String.format("|%-25s|%-25s|%-25s|%-25s|%n|%-25.2f|%-25.2f|%-25.2f|%-25d|","Purchase Price",
+                "Rental Price", "Average Speed","Num of Passengers",getPurchasePrice(),
+                getRentalPrice(),getAverageSpeed(), getNumPassengers());
     }
-
-    public String getName() {
-        return "";
+    public String get_payment_info(int num_passengers, String rent_purchase){
+        double price_tickets = 0.0;
+        if (rent_purchase.equalsIgnoreCase("rent")){
+            price_tickets = num_passengers*getRentalPrice();
+        }
+        if (rent_purchase.equalsIgnoreCase("purchase")){
+            price_tickets = num_passengers*getPurchasePrice();
+        }
+        return String.format("%s%s%.2f","Your total cost is: ", "$", price_tickets);
     }
+    String getName(){return "";}
 }
