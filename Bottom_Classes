@@ -3,11 +3,11 @@ public class Bottom_Classes {
         private int trunkSpace;
 
         public Car(String rentalOrPurchase, double purchasePrice, double rentalPrice, double averageSpeed,
-            int numPassengers, String fuelType, int trunkSpace) {
+                   int numPassengers, String fuelType, int trunkSpace) {
             super(rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed, numPassengers, fuelType);
             this.trunkSpace = trunkSpace;
         }
-        
+
         public void setTrunkSpace(int trunkSpace) { this.trunkSpace = trunkSpace; }
         public int getTrunkSpace() { return this.trunkSpace; }
 
@@ -21,7 +21,7 @@ public class Bottom_Classes {
         private String startBusStop;
 
         public Bus(String rentalOrPurchase, double purchasePrice, double rentalPrice, double averageSpeed,
-            int numPassengers, String fuelType, String startBusStop) {
+                   int numPassengers, String fuelType, String startBusStop) {
             super(rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed, numPassengers, fuelType);
             this.startBusStop = startBusStop;
 
@@ -40,7 +40,7 @@ public class Bottom_Classes {
         private String departureStation;
 
         public Train(String rentalOrPurchase, double purchasePrice, double rentalPrice, double averageSpeed,
-              int numPassengers, String fuelType, String departureStation) {
+                     int numPassengers, String fuelType, String departureStation) {
             super(rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed, numPassengers, fuelType);
             this.departureStation = departureStation;
 
@@ -59,7 +59,7 @@ public class Bottom_Classes {
         private String pickupLocation;
 
         public Bike(String rentalOrPurchase, double purchasePrice, double rentalPrice, double averageSpeed,
-             int numPassengers, String fuelType, String pickupLocation) {
+                    int numPassengers, String fuelType, String pickupLocation) {
             super(rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed, numPassengers, fuelType);
             this.pickupLocation = pickupLocation;
 
@@ -80,7 +80,7 @@ public class Bottom_Classes {
         private double maxLuggageWeight;
 
         public Plane(String terminal,int carryOnLimit,double maxLuggageWeight,String rentalOrPurchase,double purchasePrice, double rentalPrice,
-              double averageSpeed, int numPassengers, String airline, String airport, String departureTime, String arrivalTime){
+                     double averageSpeed, int numPassengers, String airline, String airport, String departureTime, String arrivalTime){
             super(airport, airline, departureTime, arrivalTime,rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed, numPassengers);
             this.terminal = terminal;
             this.carryOnLimit = carryOnLimit;
@@ -105,8 +105,8 @@ public class Bottom_Classes {
         private int weight_limit;
 
         public Heli(int weight_limit, String rentalOrPurchase, double purchasePrice,
-             double rentalPrice, double averageSpeed, int numPassengers, String airline, String airport,
-             String departureTime, String arrivalTime){
+                    double rentalPrice, double averageSpeed, int numPassengers, String airline, String airport,
+                    String departureTime, String arrivalTime){
             super(airport, airline, departureTime, arrivalTime,rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed,
                     numPassengers);
             this.weight_limit = weight_limit;
@@ -120,57 +120,63 @@ public class Bottom_Classes {
         }
     }
 
-    public class Hot_Air_Balloon extends Air_Transportation{
-    int ride_duration; // b/c hot air balloon rides can be shorter than the other transportations
-    String tethered; // this will either be a "yes" or "no" answer if the ride
-                    // is tethered or not
+    public static class Dirigible extends Air_Transportation {
+        private int volume;
 
-    public Hot_Air_Balloon(int ride_duration,String tethered,String rentalOrPurchase,double purchasePrice, double rentalPrice,
-                           double averageSpeed, int numPassengers, String airline, String airport, String departureTime,
-                           String arrivalTime){
-        super(airport, airline, departureTime, arrivalTime,rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed,
-                numPassengers);
-        this.ride_duration = ride_duration;
-        this.tethered = tethered;
+        public Dirigible(int volume, String rentalOrPurchase, double purchasePrice,
+                         double rentalPrice, double averageSpeed, int numPassengers, String airline, String airport,
+                         String departureTime, String arrivalTime) {
+            super(airport, airline, departureTime, arrivalTime, rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed,
+                    numPassengers);
+            this.volume = volume;
+        }
+
+        public void setVolume(int volume) {
+            this.volume = volume;
+        }
+
+        public int getVolume() {
+            return this.volume;
+        }
+
+        @Override
+        public String toString() {
+            return super.toString() + String.format("%25s %10s", "Balloon Volume/Size:", getVolume());
+        }
+
     }
 
-    public int getRide_duration(){return this.ride_duration;}
-    public String getTethered(){return this.tethered;}
+        public static class Hot_Air_Balloon extends Air_Transportation {
+            private int max_altitude;
 
-    public void setRide_duration(int ride_duration) {this.ride_duration=ride_duration;}
-    public void setTethered(String tethered) {this.tethered=tethered;}
+            public Hot_Air_Balloon(int max_altitude, String rentalOrPurchase, double purchasePrice,
+                                   double rentalPrice, double averageSpeed, int numPassengers, String airline, String airport,
+                                   String departureTime, String arrivalTime) {
+                super(airport, airline, departureTime, arrivalTime, rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed,
+                        numPassengers);
+                this.max_altitude = max_altitude;
+            }
 
-    @Override
-    public String toString(){
-        return super.toString() + String.format("%-25s%-10d%-25s%-10s","Ride duration: ",getRide_duration(),"Tethered: ",
-                getTethered());
-    }
-}
+            public void setMax_altitude(int max_altitude) {
+                this.max_altitude = max_altitude;
+            }
 
-    public class Dirigible extends Air_Transportation{
-    private String envelope;
+            public int getMax_altitude() {
+                return this.max_altitude;
+            }
 
-    public Dirigible(String envelope,int carryOnLimit,double maxLuggageWeight,String rentalOrPurchase,double purchasePrice,
-                     double rentalPrice, double averageSpeed, int numPassengers, String airline, String airport,
-                     String departureTime, String arrivalTime){
-        super(airport, airline, departureTime, arrivalTime,rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed,
-                numPassengers);
-        this.envelope=envelope;
-    }
-    public String getEnvelope(){return this.envelope;}
-    public void setEnvelope(String envelope){this.envelope=envelope;}
+            @Override
+            public String toString() {
+                return super.toString() + String.format("%25s %10s", "Max-Altitude", getMax_altitude());
+            }
 
-    @Override
-    public String toString(){
-        return super.toString() + String.format("%-25s%-20s","Envelope type: ", getEnvelope());
-    }
-}
+        }
 
     public static class Boat extends Water_Transportation {
         private int weight_limit;
 
         public Boat(int weight_limit,String dock, String loadingTime, String marina,String rentalOrPurchase,double purchasePrice,
-             double rentalPrice, double averageSpeed, int numPassengers){
+                    double rentalPrice, double averageSpeed, int numPassengers){
             super(dock,loadingTime,marina,rentalOrPurchase,purchasePrice,rentalPrice,averageSpeed,numPassengers);
             this.weight_limit = weight_limit;
         }
@@ -188,7 +194,7 @@ public class Bottom_Classes {
         private int depth;
 
         public Submarine(int depth,String dock, String loadingTime, String marina,String rentalOrPurchase,double purchasePrice,
-                  double rentalPrice, double averageSpeed, int numPassengers){
+                         double rentalPrice, double averageSpeed, int numPassengers){
             super(dock,loadingTime,marina,rentalOrPurchase,purchasePrice,rentalPrice,averageSpeed,numPassengers);
             this.depth=depth;
         }
@@ -206,7 +212,7 @@ public class Bottom_Classes {
         private String hull_size;
 
         public Ship(String hull_size, String dock, String loadingTime, String marina,String rentalOrPurchase,double purchasePrice,
-             double rentalPrice, double averageSpeed, int numPassengers){
+                    double rentalPrice, double averageSpeed, int numPassengers){
             super(dock,loadingTime,marina,rentalOrPurchase,purchasePrice,rentalPrice,averageSpeed,numPassengers);
             this.hull_size = hull_size;
         }
