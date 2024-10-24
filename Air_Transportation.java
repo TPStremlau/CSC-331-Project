@@ -4,9 +4,9 @@ public class Air_Transportation extends Transportation{
     private String airline;
     private String arrivalTime;
 
-    public Air_Transportation(String airport,String airline, String departureTime, String arrivalTime,String rentalOrPurchase,
-                      double purchasePrice, double rentalPrice, double averageSpeed, int numPassengers){
-        super(rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed, numPassengers);
+    public Air_Transportation(String airport,String airline, String departureTime, String arrivalTime,
+                              double purchasePrice, double rentalPrice, double averageSpeed, int numPassengers){
+        super(purchasePrice, rentalPrice, averageSpeed, numPassengers);
         this.airport = airport;
         this.airline = airline;
         this.departureTime = departureTime;
@@ -23,9 +23,15 @@ public class Air_Transportation extends Transportation{
     public void setDepartureTime(String departureTime) {this.departureTime = departureTime;}
     public void setArrivalTime(String arrivalTime) {this.arrivalTime=arrivalTime;}
 
+    @Override
     public String toString(){
-        return super.toString() + String.format("\n\t%25s %10s %25s %10s %25s %10s %25s %10s", "Airport:", getAirport(), 
-                                          "Airline:", getAirline(), "Departure Time:", getDepartureTime(), "Arrival Time:", 
-                                           getArrivalTime());
+        return super.toString() + String.format("\n\t%25s %10s %25s %10s %25s %10s %25s %10s", "Airport:", getAirport(),
+                "Airline:", getAirline(), "Departure Time:", getDepartureTime(), "Arrival Time:",
+                getArrivalTime());
     }
+
+    @Override
+    public String getName(){
+        return "";
+    };
 }
