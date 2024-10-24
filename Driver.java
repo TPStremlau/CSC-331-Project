@@ -30,8 +30,59 @@ public class Driver {
             System.out.println();
         }
         if (user_input.equalsIgnoreCase("air")){
-            for (int i =0; i<4; i++){
-                System.out.println(air_list[i].toString());
+            for (int i = 0; i < 4; i++) {
+                    System.out.println(air_list[i].getClass()); //to get the name of the air trans.
+                    System.out.println(air_list[i].toString()); //display info abt each class
+                }
+                System.out.println("Which transportation would you like to purchase?");
+                Scanner user_ticket = new Scanner(System.in);
+                String user_input2 = user_ticket.nextLine();
+
+                if (user_input2.equalsIgnoreCase("plane")) {
+                    System.out.println("Are you sure you want a plane ticket?");
+                    Scanner verify_choice = new Scanner(System.in);
+                    String user_input3 = verify_choice.nextLine();
+                    if (user_input3.equalsIgnoreCase("yes")) {
+                        System.out.println(plane1.get_arrival_info());
+                        System.out.println("How many tickets would you like to purchase?");
+                        Scanner num_tickets = new Scanner(System.in);
+                        int user_input4 = num_tickets.nextInt();
+                        System.out.println(plane1.get_payment_info(user_input4));
+                        cont_loop=false;
+                    }
+                    else{cont_loop=true;}
+                }
+                if (user_input2.equalsIgnoreCase("helicopter")) {
+                    System.out.println("Are you sure you want a helicopter ticket?");
+                    Scanner verify_choice = new Scanner(System.in);
+                    String user_input3 = verify_choice.nextLine();
+                    if (user_input3.equalsIgnoreCase("yes")) {
+                        System.out.println(plane1.get_arrival_info());
+                        System.out.println("How many tickets would you like to purchase?");
+                        Scanner num_tickets = new Scanner(System.in);
+                        int user_input4 = num_tickets.nextInt();
+                        System.out.println(heli1.get_payment_info(user_input4));
+                    }
+                }
+                if (user_input2.equalsIgnoreCase("dirigible")) {
+                    System.out.println("Are you sure you want a dirigible ticket?");
+                    Scanner verify_choice = new Scanner(System.in);
+                    String user_input3 = verify_choice.nextLine();
+                    if (user_input3.equalsIgnoreCase("yes")) {
+                        System.out.println(plane1.get_arrival_info());
+                        System.out.println("How many tickets would you like to purchase?");
+                        Scanner num_tickets = new Scanner(System.in);
+                        int user_input4 = num_tickets.nextInt();
+                        System.out.println(dirigible1.get_payment_info(user_input4));
+                    }
+                    if (user_input3.equalsIgnoreCase("no")) {
+                        System.out.println("Which transportation would you like to purchase?");
+                        Scanner change_trans = new Scanner(System.in);
+                        String user_input5 = change_trans.nextLine();
+                        if (user_input5.equalsIgnoreCase("plane")) {
+                        }
+                    }
+                }
             }
         }
         if (user_input.equalsIgnoreCase("water")){
