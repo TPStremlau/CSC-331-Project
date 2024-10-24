@@ -42,6 +42,18 @@ public class Driver {
         air_list[2] = dirigible1;
         air_list[3] = hotAirBalloon;
 
+        Transportation[] land_list = new Transportation[4];
+        land_list[0] = car;
+        land_list[1] = train;
+        land_list[2] = bus;
+        land_list[3] = bike;
+
+        Transportation[] water_list = new Transportation[4];
+        water_list[0] = boat;
+        water_list[1] = sub;
+        water_list[2] = ship;
+
+
         System.out.println("What type of transportation do you want to use: land, air, or water?");
         Scanner trans_type = new Scanner(System.in);
         String user_input = trans_type.nextLine();
