@@ -112,4 +112,28 @@ public class Driver {
 
 
     }
+
+    public static void print_lists(Transportation[] air_list, Transportation[] land_list, Transportation[] water_list) {
+
+        System.out.println("\nHere are the Air transportation methods:");
+        for (Transportation air_transportation : air_list) {
+            System.out.println(air_transportation);
+        };
+
+        System.out.println("\nHere are the Land transportation methods:");
+        for (Transportation land_transportation : land_list) {
+            System.out.println(land_transportation);
+        };
+
+        System.out.println("\nHere are the Water transportation methods:");
+        for (Transportation water_transportation : water_list) {
+            System.out.println(water_transportation);
+        };
+    }
+
+    public static void print_specific_list(Transportation[] specific_list) {
+        for (Transportation transportation : specific_list) {
+            System.out.println(transportation);
+        }
+    }
 }
