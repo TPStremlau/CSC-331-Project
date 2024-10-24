@@ -15,6 +15,10 @@ public class Bottom_Classes {
         public String toString() {
             return super.toString() + String.format("%25s%7d%3s", "Trunk Space:", getTrunkSpace(), "m^3");
         }
+
+        public String getName() {
+            return "Car";
+        }
     }
 
     public static class Bus extends Land_Transportation{
@@ -35,6 +39,10 @@ public class Bottom_Classes {
         public String toString() {
             return super.toString() + String.format("%25s %10s", "Starting Stop", getStartBusStop());
         }
+
+        public String getName() {
+            return "Bus";
+        }
     }
     public static class Train extends Land_Transportation{
         private String departureStation;
@@ -52,6 +60,10 @@ public class Bottom_Classes {
         @Override
         public String toString() {
             return super.toString() + String.format("%25s %10s", "Departure Stop:", getDepartureStation());
+        }
+
+        public String getName() {
+            return "Train";
         }
     }
 
@@ -71,6 +83,10 @@ public class Bottom_Classes {
         @Override
         public String toString() {
             return super.toString() + String.format("%25s %10s", "Bike Pickup Location", getPickupLocation());
+        }
+
+        public String getName() {
+            return "Bike";
         }
     }
 
@@ -99,6 +115,10 @@ public class Bottom_Classes {
         public String toString() {
             return super.toString() + String.format("%25s %10s", "Departure Terminal", getTerminal());
         }
+
+        public String getName() {
+            return "Plane";
+        }
     }
 
     public static class Heli extends Air_Transportation {
@@ -117,6 +137,10 @@ public class Bottom_Classes {
         @Override
         public String toString() {
             return super.toString() + String.format("%25s %10s", "Weight-Limit", getWeight_limit());
+        }
+
+        public String getName() {
+            return "Helicopter";
         }
     }
 
@@ -144,6 +168,10 @@ public class Bottom_Classes {
             return super.toString() + String.format("%25s %10s", "Balloon Volume/Size:", getVolume());
         }
 
+        public String getName() {
+            return "Dirigible";
+        }
+
     }
 
         public static class Hot_Air_Balloon extends Air_Transportation {
@@ -169,6 +197,10 @@ public class Bottom_Classes {
             public String toString() {
                 return super.toString() + String.format("%25s %10s", "Max-Altitude", getMax_altitude());
             }
+            
+            public String getName() {
+                return "Hot Air Balloon";
+            }
 
         }
 
@@ -188,6 +220,10 @@ public class Bottom_Classes {
         public String toString() {
             return super.toString() + String.format("%25s %10d", "Max carry-weight", getWeight_limit());
         }
+
+        public String getName() {
+            return "Boat";
+        }
     }
 
     public static class Submarine extends Water_Transportation {
@@ -206,6 +242,10 @@ public class Bottom_Classes {
         public String toString() {
             return super.toString() + String.format("%25s %10d", "Travel-Depth:", getDepth());
         }
+
+        public String getName() {
+            return "Submarine";
+        }
     }
 
     public static class Ship extends Water_Transportation {
@@ -223,6 +263,10 @@ public class Bottom_Classes {
         @Override
         public String toString() {
             return super.toString() + String.format("%25s %10s", "Hull Size:", getHull_size());
+        }
+        
+        public String getName() {
+            return "Ship";
         }
     }
 }
