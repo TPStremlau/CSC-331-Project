@@ -1,9 +1,9 @@
 public class Land_Transportation extends Transportation {
     private String fuelType;
 
-    public Land_Transportation(String rentalOrPurchase, double purchasePrice, double rentalPrice, double averageSpeed,
-            int numPassengers, String fuelType){
-        super(rentalOrPurchase, purchasePrice, rentalPrice, averageSpeed, numPassengers);
+    public Land_Transportation(double purchasePrice, double rentalPrice, double averageSpeed,
+                               int numPassengers, String fuelType){
+        super(purchasePrice, rentalPrice, averageSpeed, numPassengers);
         this.fuelType = fuelType;
     }
 
@@ -14,5 +14,9 @@ public class Land_Transportation extends Transportation {
     public String toString() {
         return super.toString() + String.format("%25s %10s", "Fuel-Type:", getFuelType());
     }
-}
 
+    @Override
+    public String getName(){
+        return "";
+    };
+}
