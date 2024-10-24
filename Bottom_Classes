@@ -40,6 +40,7 @@ public class Bottom_Classes {
             return super.toString() + String.format("%25s %10s", "Starting Stop", getStartBusStop());
         }
 
+        @Override
         public String getName() {
             return "Bus";
         }
@@ -62,6 +63,7 @@ public class Bottom_Classes {
             return super.toString() + String.format("%25s %10s", "Departure Stop:", getDepartureStation());
         }
 
+        @Override
         public String getName() {
             return "Train";
         }
@@ -85,6 +87,7 @@ public class Bottom_Classes {
             return super.toString() + String.format("%25s %10s", "Bike Pickup Location", getPickupLocation());
         }
 
+        @Override
         public String getName() {
             return "Bike";
         }
@@ -116,6 +119,7 @@ public class Bottom_Classes {
             return super.toString() + String.format("%25s %10s", "Departure Terminal", getTerminal());
         }
 
+        @Override
         public String getName() {
             return "Plane";
         }
@@ -139,6 +143,7 @@ public class Bottom_Classes {
             return super.toString() + String.format("%25s %10s", "Weight-Limit", getWeight_limit());
         }
 
+        @Override
         public String getName() {
             return "Helicopter";
         }
@@ -168,6 +173,7 @@ public class Bottom_Classes {
             return super.toString() + String.format("%25s %10s", "Balloon Volume/Size:", getVolume());
         }
 
+        @Override
         public String getName() {
             return "Dirigible";
         }
@@ -197,7 +203,8 @@ public class Bottom_Classes {
             public String toString() {
                 return super.toString() + String.format("%25s %10s", "Max-Altitude", getMax_altitude());
             }
-            
+
+            @Override
             public String getName() {
                 return "Hot Air Balloon";
             }
@@ -220,7 +227,8 @@ public class Bottom_Classes {
         public String toString() {
             return super.toString() + String.format("%25s %10d", "Max carry-weight", getWeight_limit());
         }
-
+        
+        @Override
         public String getName() {
             return "Boat";
         }
@@ -243,6 +251,7 @@ public class Bottom_Classes {
             return super.toString() + String.format("%25s %10d", "Travel-Depth:", getDepth());
         }
 
+        @Override
         public String getName() {
             return "Submarine";
         }
@@ -264,9 +273,10 @@ public class Bottom_Classes {
         public String toString() {
             return super.toString() + String.format("%25s %10s", "Hull Size:", getHull_size());
         }
-        
+
+        @Override
         public String getName() {
-            return "Ship";
+            return super.getName() + "Ship";
         }
     }
 }
