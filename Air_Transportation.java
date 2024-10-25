@@ -25,10 +25,14 @@ public class Air_Transportation extends Transportation{
     public void setDepartureTime(String departureTime) {this.departureTime = departureTime;}
     public void setArrivalTime(String arrivalTime) {this.arrivalTime=arrivalTime;}
 
+    @Override
+    public String toString(){
+        return super.toString() + String.format("%-25s%-25s%-25s%-25s","Airport:",getAirport(),"Departure time:",
+                getDepartureTime());
+    }
     public String get_arrival_info(){
         return "Arrive at "+getDepartureTime()+" at "+getAirport();
     }
-
     @ Override
     String getName(){return "";}
 }
