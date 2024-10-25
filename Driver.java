@@ -68,7 +68,6 @@ public class Driver {
         water_list[1] = sub;
         water_list[2] = ship;
 
-        System.out.println("Here are all the options:");
         print_lists(air_list, land_list, water_list);
 
         Scanner user_transportation = new Scanner(System.in);
