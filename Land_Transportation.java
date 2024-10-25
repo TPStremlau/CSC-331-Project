@@ -15,7 +15,7 @@ public class Land_Transportation extends Transportation {
 
     @Override
     public String toString() {
-        return super.toString() + String.format("%n%n|%-15s|%n|%-15s|", "Fuel-Type: ", getFuelType());
+        return super.toString() + String.format("%n%n|%-20s|%n|%-20s|", "Fuel-Type: ", getFuelType());
     }
 
     @Override
