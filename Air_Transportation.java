@@ -57,7 +57,7 @@ public class Air_Transportation extends Transportation {
 
     @Override
     public String toString() {
-        return super.toString() + String.format("%n|%-15s|%-15s|%-15s|%-15s|%n|%-15s|%-15s|%-15s|%-15s|",
+        return super.toString() + String.format("%n|%-20s|%-20s|%-20s|%-20s|%n|%-20s|%-20s|%-20s|%-20s|",
                 "Airport:", "Airline:", "Departure Time:", "Arrival Time:" , getAirport(), getAirline(),  getDepartureTime(),
                 getArrivalTime());
     }
