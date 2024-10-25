@@ -96,19 +96,19 @@ public class Driver {
 
                         case "bus":
                             System.out.println("Here is information about the Bus:");
-                            System.out.println(bus.toString());
+                            System.out.println(bus);
                             cont_loop = get_info(user_vehicle, bus);
                             break;
 
                         case "train":
                             System.out.println("Here is information about the Train:");
-                            System.out.println(train.toString());
+                            System.out.println(train);
                             cont_loop = get_info(user_vehicle, train);
                             break;
 
                         case "bike":
                             System.out.println("Here is information about the Bike:");
-                            System.out.println(bike.toString());
+                            System.out.println(bike);
                             cont_loop = get_info(user_vehicle, bike);
                             break;
 
@@ -138,13 +138,13 @@ public class Driver {
 
                         case "dirigible":
                             System.out.println("Here is information about the Dirigible:");
-                            System.out.println(dirigible1.toString());
+                            System.out.println(dirigible1);
                             cont_loop = get_info(user_vehicle, dirigible1);
                             break;
 
                         case "hot air balloon":
                             System.out.println("Here is information about the Hot Air Balloon:");
-                            System.out.println(hotAirBalloon.toString());
+                            System.out.println(hotAirBalloon);
                             cont_loop = get_info(user_vehicle, hotAirBalloon);
                             break;
 
@@ -161,19 +161,19 @@ public class Driver {
                     switch (user_vehicle.toLowerCase()) {
                         case "boat":
                             System.out.println("Here is information about the Boat:");
-                            System.out.println(boat.toString());
+                            System.out.println(boat);
                             cont_loop = get_info(user_vehicle, boat);
                             break;
 
                         case "submarine":
                             System.out.println("Here is information about the Submarine:");
-                            System.out.println(sub.toString());
+                            System.out.println(sub);
                             cont_loop = get_info(user_vehicle, sub);
                             break;
 
                         case "ship":
                             System.out.println("Here is information about the Ship:");
-                            System.out.println(ship.toString());
+                            System.out.println(ship);
                             cont_loop = get_info(user_vehicle, ship);
                             break;
 
