@@ -182,10 +182,20 @@ public class Driver {
 
         if (affirm_ticket.equalsIgnoreCase("yes")) {
 
-            System.out.println("Do you want to rent the vehicle or purchase a ticket for a seat?\n(Rent/Purchase)");
-            Scanner rent_purchase = new Scanner(System.in);
-            String rent_or_purchase = rent_purchase.nextLine();
             int ticket_amount = 1; // set ticket amount default to 1 in case user is renting
+
+            String rent_or_purchase = null;
+
+            if (user_class.getName().equalsIgnoreCase("Bike")) {
+                rent_or_purchase = "rent";
+                System.out.println("Bikes only have one seat, so you can only rent them.");
+            }
+
+            else{
+                System.out.println("Do you want to rent the vehicle or purchase a ticket for a seat?\n(Rent/Purchase)");
+                Scanner rent_purchase = new Scanner(System.in);
+                rent_or_purchase = rent_purchase.nextLine();
+            }
 
             if (rent_or_purchase.equalsIgnoreCase("purchase")) {
                 System.out.println("How many tickets would you like to purchase?");
@@ -194,10 +204,11 @@ public class Driver {
 
                 while (ticket_amount > user_class.getNumPassengers() || ticket_amount < 1) {
                     if (ticket_amount < 1) {
-                        System.out.print("Enter a value greater than or equal to 1!");
+                        System.out.print("\nEnter a value greater than or equal to 1: ");
 
                     } else {
-                        System.out.print("You are requesting more tickets then there are seats.");
+                        System.out.print("\nYou are requesting more tickets then there are seats.\n" +
+                                "Enter a different number: ");
                     }
 
                     num_tickets = new Scanner(System.in);
