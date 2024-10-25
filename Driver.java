@@ -84,7 +84,7 @@ public class Driver {
             switch (trans_type_choice.toLowerCase()) {
                 case "land":
                     print_specific_list(land_list);
-                    System.out.println("Which transportation would you like to purchase?(Car/Bus/Train/Bike)");
+                    System.out.println("Which transportation would you like to purchase? (Car/Bus/Train/Bike)");
                     user_vehicle = user_transportation.nextLine();
 
                     switch (user_vehicle.toLowerCase()) {
@@ -119,20 +119,20 @@ public class Driver {
 
                 case "air":
                     print_specific_list(air_list);
-                    System.out.println("Which transportation would you like to purchase?" +
+                    System.out.println("Which transportation would you like to purchase? " +
                             "(Plane/Helicopter/Dirigible/Hot Air Balloon)");
                     user_vehicle = user_transportation.nextLine();
 
                     switch (user_vehicle.toLowerCase()) {
                         case "plane":
                             System.out.println("Here is information about the Plane:");
-                            System.out.println(plane1.toString());
+                            System.out.println(plane1);
                             cont_loop = get_info(user_vehicle, plane1);
                             break;
 
                         case "helicopter":
                             System.out.println("Here is information about the Helicopter:");
-                            System.out.println(helicopter1.toString());
+                            System.out.println(helicopter1);
                             cont_loop = get_info(user_vehicle, helicopter1);
                             break;
 
@@ -155,7 +155,7 @@ public class Driver {
 
                 case "water":
                     print_specific_list(water_list);
-                    System.out.println("Which transportation would you like to purchase?(Boat/Submarine/Ship)");
+                    System.out.println("Which transportation would you like to purchase? (Boat/Submarine/Ship)");
                     user_vehicle = user_transportation.nextLine();
 
                     switch (user_vehicle.toLowerCase()) {
@@ -191,7 +191,7 @@ public class Driver {
         System.out.println("Thank you for using the Wilmington Travel Center!");
     }
     public static boolean get_info(String user_choice, Transportation user_class){
-        System.out.println("Are you sure you want a " + user_choice + " ticket?(Yes/No)");
+        System.out.println("Are you sure you want to use a " + user_choice + " for your travels?(Yes/No)");
         Scanner verify_choice = new Scanner(System.in);
         String affirm_ticket = verify_choice.nextLine();
 
@@ -210,8 +210,8 @@ public class Driver {
                     System.out.print("\nEnter a value greater than or equal to 1: ");
 
                 } else {
-                    System.out.print("\nYou are requesting more tickets then there are seats.\n" +
-                            "Enter a different number: ");
+                    System.out.print("\nThis vehicle can only hold: " + user_class.getNumPassengers() +
+                            "\nEnter a different number: ");
                 }
 
                 num_tickets = new Scanner(System.in);
@@ -223,16 +223,10 @@ public class Driver {
             Scanner rent_purchase = new Scanner(System.in);
             rent_or_purchase = rent_purchase.nextLine();
 
-
-            if (rent_or_purchase.equalsIgnoreCase("purchase")) {
-
-            }
-
             System.out.println(user_class.get_payment_info(ticket_amount, rent_or_purchase));
             System.out.println("\n"+user_class.get_arrival_info());
 
             return false;
-
         }
         return (true);
     }
