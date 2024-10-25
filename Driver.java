@@ -77,7 +77,7 @@ public class Driver {
         boolean cont_loop = true;
 
         while (cont_loop) {
-            System.out.println("\nWhat type of transportation do you want to use? A(Air,Land,Water)");
+            System.out.println("\nWhat type of transportation do you want to use? (Air,Land,Water)");
             Scanner trans_type = new Scanner(System.in);
             String trans_type_choice = trans_type.nextLine();
 
