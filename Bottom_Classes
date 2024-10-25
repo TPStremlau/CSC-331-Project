@@ -1,21 +1,34 @@
 public class Bottom_Classes {
     public static class Car extends Land_Transportation{
+        private String pickUpLocation;
         private int trunkSpace;
+        private String pickUpTime;
 
         public Car(double purchasePrice, double rentalPrice, double averageSpeed,
-                   int numPassengers, String fuelType, int trunkSpace) {
-            super(purchasePrice, rentalPrice, averageSpeed, numPassengers, fuelType);
+                   int numPassengers, String fuelType, int trunkSpace,String pickUpLocation, String pickUpTime) {
+            super(purchasePrice, rentalPrice, averageSpeed, numPassengers,fuelType);
             this.trunkSpace = trunkSpace;
-        }
+            this.pickUpLocation = pickUpLocation;
+            this.pickUpTime = pickUpTime;
 
+        }
+        public void setPickUpLocation(String pickUpLocation) {this.pickUpLocation = pickUpLocation;}
+        public void setPickUpTime(String pickUpTime) {this.pickUpTime=pickUpTime;}
         public void setTrunkSpace(int trunkSpace) { this.trunkSpace = trunkSpace; }
         public int getTrunkSpace() { return this.trunkSpace; }
+        public String getPickUpLocation() {return this.pickUpLocation;}
+        public String getPickUpTime() {return this.pickUpTime;}
+
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%25s%7d%3s", "Trunk Space:", getTrunkSpace(), "m^3");
+            return super.toString() + String.format("%-25s%-4d%-21s%-25s%-25s%-25s%-25s", "Trunk Space: ", getTrunkSpace(),
+                    "m^3", "Pickup location:",getPickUpLocation(),"Pickup time:",getPickUpTime());
         }
-
+        @Override
+        public String get_arrival_info(){
+            return "To pick up your car, arrive at " + getPickUpLocation() + " at " + getPickUpTime();
+        }
         public String getName() {
             return "Car";
         }
@@ -23,21 +36,28 @@ public class Bottom_Classes {
 
     public static class Bus extends Land_Transportation{
         private String startBusStop;
+        private String departureTime;
 
         public Bus(double purchasePrice, double rentalPrice, double averageSpeed,
-                   int numPassengers, String fuelType, String startBusStop) {
-            super(purchasePrice, rentalPrice, averageSpeed, numPassengers, fuelType);
+                   int numPassengers, String fuelType, String startBusStop, String departureTime) {
+            super(purchasePrice, rentalPrice, averageSpeed, numPassengers,fuelType);
             this.startBusStop = startBusStop;
+            this.departureTime = departureTime;
 
         }
-
+        public void setDepartureTime(String departureTime) {this.departureTime=departureTime;}
         public void setStartBusStop(String busStop) { this.startBusStop = startBusStop; }
-
+        public String getDepartureTime() {return this.departureTime;}
         public String getStartBusStop() { return this.startBusStop; }
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%25s %10s", "Starting Stop", getStartBusStop());
+            return super.toString() + String.format("%-25s%-25s%-25s%-25s", "Starting Stop: ", getStartBusStop(),
+                    "Departure time:", getDepartureTime());
+        }
+        @Override
+        public String get_arrival_info() {
+            return "Arrive at " + getStartBusStop() + " at " + getDepartureTime();
         }
 
         @Override
@@ -47,20 +67,27 @@ public class Bottom_Classes {
     }
     public static class Train extends Land_Transportation{
         private String departureStation;
+        private String departureTime;
 
         public Train(double purchasePrice, double rentalPrice, double averageSpeed,
-                     int numPassengers, String fuelType, String departureStation) {
-            super(purchasePrice, rentalPrice, averageSpeed, numPassengers, fuelType);
+                     int numPassengers, String fuelType, String departureStation, String departureTime) {
+            super(purchasePrice, rentalPrice, averageSpeed, numPassengers,fuelType);
+            this.departureTime = departureTime;
             this.departureStation = departureStation;
-
         }
-
+        public void setDepartureTime(String departureTime){this.departureTime=departureTime;}
         public void setDepartureStation(String departureStation) { this.departureStation = departureStation; }
+        public String getDepartureTime() {return this.departureTime;}
         public String getDepartureStation() { return this.departureStation; }
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%25s %10s", "Departure Stop:", getDepartureStation());
+            return super.toString() + String.format("%-25s%-25s%-25s%-25s", "Departure Stop:", getDepartureStation(),
+                    "Departure time:",getDepartureTime());
+        }
+        @Override
+        public String get_arrival_info(){
+            return "Arrive at " + getDepartureStation() + " at " + getDepartureTime();
         }
 
         @Override
@@ -71,20 +98,28 @@ public class Bottom_Classes {
 
     public static class Bike extends Land_Transportation{
         private String pickupLocation;
+        private String pickupTime;
 
         public Bike(double purchasePrice, double rentalPrice, double averageSpeed,
-                    int numPassengers, String fuelType, String pickupLocation) {
-            super(purchasePrice, rentalPrice, averageSpeed, numPassengers, fuelType);
+                    int numPassengers, String fuelType, String pickupLocation,String pickupTime) {
+            super(purchasePrice, rentalPrice, averageSpeed, numPassengers,fuelType);
             this.pickupLocation = pickupLocation;
+            this.pickupTime = pickupTime;
 
         }
-
+        public void setPickupTime(String pickupTime) {this.pickupTime=pickupTime;}
         public void setPickupLocation(String pickupLocation) { this.pickupLocation = pickupLocation; }
+        public String getPickupTime() {return this.pickupTime;}
         public String getPickupLocation() { return this.pickupLocation; }
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%25s %10s", "Bike Pickup Location", getPickupLocation());
+            return super.toString() + String.format("%-25s%-25s%-25s%-25s", "Bike Pickup Location", getPickupLocation(),
+                    "Pickup time:",getPickupTime());
+        }
+        @Override
+        public String get_arrival_info(){
+            return "Arrive at " + getPickupLocation() + " at " + getPickupTime();
         }
 
         @Override
@@ -180,36 +215,36 @@ public class Bottom_Classes {
 
     }
 
-        public static class Hot_Air_Balloon extends Air_Transportation {
-            private int max_altitude;
+    public static class Hot_Air_Balloon extends Air_Transportation {
+        private int max_altitude;
 
-            public Hot_Air_Balloon(int max_altitude, double purchasePrice,
-                                   double rentalPrice, double averageSpeed, int numPassengers, String airline, String airport,
-                                   String departureTime, String arrivalTime) {
-                super(airport, airline, departureTime, arrivalTime, purchasePrice, rentalPrice, averageSpeed,
-                        numPassengers);
-                this.max_altitude = max_altitude;
-            }
-
-            public void setMax_altitude(int max_altitude) {
-                this.max_altitude = max_altitude;
-            }
-
-            public int getMax_altitude() {
-                return this.max_altitude;
-            }
-
-            @Override
-            public String toString() {
-                return super.toString() + String.format("%25s %10s", "Max-Altitude", getMax_altitude());
-            }
-
-            @Override
-            public String getName() {
-                return "Hot Air Balloon";
-            }
-
+        public Hot_Air_Balloon(int max_altitude, double purchasePrice,
+                               double rentalPrice, double averageSpeed, int numPassengers, String airline, String airport,
+                               String departureTime, String arrivalTime) {
+            super(airport, airline, departureTime, arrivalTime, purchasePrice, rentalPrice, averageSpeed,
+                    numPassengers);
+            this.max_altitude = max_altitude;
         }
+
+        public void setMax_altitude(int max_altitude) {
+            this.max_altitude = max_altitude;
+        }
+
+        public int getMax_altitude() {
+            return this.max_altitude;
+        }
+
+        @Override
+        public String toString() {
+            return super.toString() + String.format("%25s %10s", "Max-Altitude", getMax_altitude());
+        }
+
+        @Override
+        public String getName() {
+            return "Hot Air Balloon";
+        }
+
+    }
 
     public static class Boat extends Water_Transportation {
         private int weight_limit;
@@ -227,7 +262,7 @@ public class Bottom_Classes {
         public String toString() {
             return super.toString() + String.format("%25s %10d", "Max carry-weight", getWeight_limit());
         }
-        
+
         @Override
         public String getName() {
             return "Boat";
