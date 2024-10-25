@@ -115,7 +115,7 @@ public class Driver {
                 case "air":
                     print_specific_list(air_list);
                     System.out.println("Which transportation would you like to purchase?" +
-                            "(Plane/Helicopter/Dirigible/Hot Air Balloon");
+                            "(Plane/Helicopter/Dirigible/Hot Air Balloon)");
                     user_vehicle = user_transportation.nextLine();
 
                     switch (user_vehicle.toLowerCase()) {
