@@ -27,7 +27,7 @@ public class Transportation {
 
     @Override
     public String toString(){
-        return String.format("|%-15s|%-15s|%-15s|%-15s|%n|%-15.2f|%-15.2f|%-15.2f|%-15d|","Ticket Price",
+        return String.format("|%-20s|%-20s|%-20s|%-20s|%n|%-20.2f|%-20.2f|%-20.2f|%-20d|","Ticket Price",
                 "Rental Price", "Average Speed","Passenger Count",getPurchasePrice(),
                 getRentalPrice(),getAverageSpeed(), getNumPassengers());
     }
