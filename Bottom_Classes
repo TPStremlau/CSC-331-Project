@@ -22,8 +22,9 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%-25s%-4d%-21s%-25s%-25s%-25s%-25s", "Trunk Space: ", getTrunkSpace(),
-                    "m^3", "Pickup location:",getPickUpLocation(),"Pickup time:",getPickUpTime());
+            return super.toString() + String.format("%n%n|%-15s|%-15s|%-15s|%n|%-15s|%-15s|%-15d|%n",
+                    "Pickup location:","Pickup time:", "Trunk Space: ",getPickUpLocation() ,getPickUpTime(),
+                    getTrunkSpace());
         }
         @Override
         public String get_arrival_info(){
@@ -52,8 +53,8 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%-25s%-25s%-25s%-25s", "Starting Stop: ", getStartBusStop(),
-                    "Departure time:", getDepartureTime());
+            return super.toString() + String.format("%n%n|%-15s|%-15s|%n|%-15s|%-15s|%n", "Starting Stop: ",
+                    "Departure time:", getStartBusStop(), getDepartureTime());
         }
         @Override
         public String get_arrival_info() {
@@ -82,8 +83,8 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%-25s%-25s%-25s%-25s", "Departure Stop:", getDepartureStation(),
-                    "Departure time:",getDepartureTime());
+            return super.toString() + String.format("%n%n|%-15s|%-15s|%n|%-15s|%-15s|%n", "Departure Stop:",
+                    "Departure time:", getDepartureStation(), getDepartureTime());
         }
         @Override
         public String get_arrival_info(){
@@ -114,8 +115,8 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%-25s%-25s%-25s%-25s", "Bike Pickup Location", getPickupLocation(),
-                    "Pickup time:",getPickupTime());
+            return super.toString() + String.format("%n%n|%-15s|%-15s|%n|%-15s|%-15s|%n", "Pickup Location:",
+                    "Pickup time:", getPickupLocation(), getPickupTime());
         }
         @Override
         public String get_arrival_info(){
@@ -146,12 +147,18 @@ public class Bottom_Classes {
         public double getMaxLuggageWeight() {return this.maxLuggageWeight;}
 
         public void setTerminal(String terminal) {this.terminal = terminal;}
-        public void setAirline(int carryOnLimit) {this.carryOnLimit = carryOnLimit;}
-        public void setAirport(double maxLuggageWeight) {this.maxLuggageWeight = maxLuggageWeight;}
+        public void setCarryOnLimit(int carryOnLimit) {this.carryOnLimit = carryOnLimit;}
+        public void setMaxLuggageWeight(double maxLuggageWeight) {this.maxLuggageWeight = maxLuggageWeight;}
+
+        @Override
+        public String get_arrival_info() {
+            return super.get_arrival_info() + "from" + getTerminal() + "for your flight at:" + getDepartureTime();
+        }
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%25s %10s", "Departure Terminal", getTerminal());
+            return super.toString() + String.format("%n%n|%-15s|%-15s|%n|%-15s|%-15s|%n", "Departure Terminal:",
+                    "Carry-on Limit:", getTerminal(), getCarryOnLimit());
         }
 
         @Override
@@ -175,7 +182,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%25s %10s", "Weight-Limit", getWeight_limit());
+            return super.toString() + String.format("%n%n|%-15s|%n|%-15d|%n", "Weight-Limit:", getWeight_limit());
         }
 
         @Override
@@ -205,7 +212,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%25s %10s", "Balloon Volume/Size:", getVolume());
+            return super.toString() + String.format("%n%n|%-15s|%n|%-15d|%n", "Volume/Size:", getVolume());
         }
 
         @Override
@@ -236,7 +243,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%25s %10s", "Max-Altitude", getMax_altitude());
+            return super.toString() + String.format("%n%n|%-15s|%n|%-15d|%n", "Max-Altitude", getMax_altitude());
         }
 
         @Override
@@ -260,7 +267,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%25s %10d", "Max carry-weight", getWeight_limit());
+            return super.toString() + String.format("%n%n|%-15s|%n|%-15d|%n", "Max carry-weight", getWeight_limit());
         }
 
         @Override
@@ -283,7 +290,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%25s %10d", "Travel-Depth:", getDepth());
+            return super.toString() + String.format("%n%n|%-15s|%n|%-15s|%n", "Travel-Depth:", getDepth());
         }
 
         @Override
@@ -306,7 +313,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%25s %10s", "Hull Size:", getHull_size());
+            return super.toString() + String.format("%n%n|%-15s|%n|%-15s|%n", "Hull Size:", getHull_size());
         }
 
         @Override
