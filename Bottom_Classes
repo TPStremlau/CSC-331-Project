@@ -22,7 +22,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%n%n|%-15s|%-15s|%-15s|%n|%-15s|%-15s|%-15d|%n",
+            return super.toString() + String.format("%n%n|%-20s|%-20s|%-20s|%n|%-20s|%-20s|%-20d|%n",
                     "Pickup location:","Pickup time:", "Trunk Space: ",getPickUpLocation() ,getPickUpTime(),
                     getTrunkSpace());
         }
@@ -53,7 +53,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%n%n|%-15s|%-15s|%n|%-15s|%-15s|%n", "Starting Stop: ",
+            return super.toString() + String.format("%n%n|%-20s|%-20s|%n|%-20s|%-20s|%n", "Starting Stop: ",
                     "Departure time:", getStartBusStop(), getDepartureTime());
         }
         @Override
@@ -83,7 +83,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%n%n|%-15s|%-15s|%n|%-15s|%-15s|%n", "Departure Stop:",
+            return super.toString() + String.format("%n%n|%-20s|%-20s|%n|%-20s|%-20s|%n", "Departure Stop:",
                     "Departure time:", getDepartureStation(), getDepartureTime());
         }
         @Override
@@ -115,7 +115,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%n%n|%-15s|%-15s|%n|%-15s|%-15s|%n", "Pickup Location:",
+            return super.toString() + String.format("%n%n|%-20s|%-20s|%n|%-20s|%-20s|%n", "Pickup Location:",
                     "Pickup time:", getPickupLocation(), getPickupTime());
         }
         @Override
@@ -157,7 +157,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%n%n|%-15s|%-15s|%n|%-15s|%-15s|%n", "Departure Terminal:",
+            return super.toString() + String.format("%n%n|%-20s|%-20s|%n|%-20s|%-20s|%n", "Departure Terminal:",
                     "Carry-on Limit:", getTerminal(), getCarryOnLimit());
         }
 
@@ -182,7 +182,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%n%n|%-15s|%n|%-15d|%n", "Weight-Limit:", getWeight_limit());
+            return super.toString() + String.format("%n%n|%-20s|%n|%-20d|%n", "Weight-Limit:", getWeight_limit());
         }
 
         @Override
@@ -212,7 +212,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%n%n|%-15s|%n|%-15d|%n", "Volume/Size:", getVolume());
+            return super.toString() + String.format("%n%n|%-20s|%n|%-20d|%n", "Volume/Size:", getVolume());
         }
 
         @Override
@@ -243,7 +243,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%n%n|%-15s|%n|%-15d|%n", "Max-Altitude", getMax_altitude());
+            return super.toString() + String.format("%n%n|%-20s|%n|%-20d|%n", "Max-Altitude", getMax_altitude());
         }
 
         @Override
@@ -267,7 +267,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%n%n|%-15s|%n|%-15d|%n", "Max carry-weight", getWeight_limit());
+            return super.toString() + String.format("%n%n|%-20s|%n|%-20d|%n", "Max carry-weight", getWeight_limit());
         }
 
         @Override
@@ -290,7 +290,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%n%n|%-15s|%n|%-15s|%n", "Travel-Depth:", getDepth());
+            return super.toString() + String.format("%n%n|%-20s|%n|%-20s|%n", "Travel-Depth:", getDepth());
         }
 
         @Override
@@ -313,7 +313,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%n%n|%-15s|%n|%-15s|%n", "Hull Size:", getHull_size());
+            return super.toString() + String.format("%n%n|%-20s|%n|%-20s|%n", "Hull Size:", getHull_size());
         }
 
         @Override
