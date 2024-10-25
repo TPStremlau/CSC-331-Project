@@ -23,7 +23,7 @@ public class Bottom_Classes {
         @Override
         public String toString() {
             return super.toString() + String.format("%n%n|%-20s|%-20s|%-20s|%n|%-20s|%-20s|%-20d|%n",
-                    "Pickup location:","Pickup time:", "Trunk Space: ",getPickUpLocation() ,getPickUpTime(),
+                    "Pickup location:","Pickup time:", "Trunk Space(m^3): ",getPickUpLocation() ,getPickUpTime(),
                     getTrunkSpace());
         }
         @Override
@@ -152,13 +152,13 @@ public class Bottom_Classes {
 
         @Override
         public String get_arrival_info() {
-            return super.get_arrival_info() + "from" + getTerminal() + "for your flight at:" + getDepartureTime();
+            return super.get_arrival_info() + " and go to " + getTerminal() + " for your flight at: " + getDepartureTime();
         }
 
         @Override
         public String toString() {
             return super.toString() + String.format("%n%n|%-20s|%-20s|%n|%-20s|%-20s|%n", "Departure Terminal:",
-                    "Carry-on Limit:", getTerminal(), getCarryOnLimit());
+                    "Carry-on Limit(lbs):", getTerminal(), getCarryOnLimit());
         }
 
         @Override
@@ -181,8 +181,13 @@ public class Bottom_Classes {
         public int getWeight_limit() { return this.weight_limit; }
 
         @Override
+        public String get_arrival_info() {
+            return super.get_arrival_info() + " and wait at the Helicopter Pads";
+        }
+
+        @Override
         public String toString() {
-            return super.toString() + String.format("%n%n|%-20s|%n|%-20d|%n", "Weight-Limit:", getWeight_limit());
+            return super.toString() + String.format("%n%n|%-20s|%n|%-20d|%n", "Weight-Limit(lbs):", getWeight_limit());
         }
 
         @Override
@@ -202,17 +207,18 @@ public class Bottom_Classes {
             this.volume = volume;
         }
 
-        public void setVolume(int volume) {
-            this.volume = volume;
-        }
+        public void setVolume(int volume) { this.volume = volume; }
 
-        public int getVolume() {
-            return this.volume;
+        public int getVolume() { return this.volume; }
+
+        @Override
+        public String get_arrival_info() {
+            return super.get_arrival_info() + " and wait at the Helicopter Pads";
         }
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%n%n|%-20s|%n|%-20d|%n", "Volume/Size:", getVolume());
+            return super.toString() + String.format("%n%n|%-20s|%n|%-20d|%n", "Volume/Size(m^3):", getVolume());
         }
 
         @Override
@@ -243,7 +249,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%n%n|%-20s|%n|%-20d|%n", "Max-Altitude", getMax_altitude());
+            return super.toString() + String.format("%n%n|%-20s|%n|%-20d|%n", "Max-Altitude(m):", getMax_altitude());
         }
 
         @Override
@@ -256,9 +262,9 @@ public class Bottom_Classes {
     public static class Boat extends Water_Transportation {
         private int weight_limit;
 
-        public Boat(int weight_limit,String dock, String loadingTime, String marina, double purchasePrice,
+        public Boat(int weight_limit,String dock, String loadingTime, String marina, String departureTime, double purchasePrice,
                     double rentalPrice, double averageSpeed, int numPassengers){
-            super(dock,loadingTime,marina,purchasePrice,rentalPrice,averageSpeed,numPassengers);
+            super(dock,loadingTime,marina,departureTime, purchasePrice,rentalPrice,averageSpeed,numPassengers);
             this.weight_limit = weight_limit;
         }
 
@@ -267,7 +273,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%n%n|%-20s|%n|%-20d|%n", "Max carry-weight", getWeight_limit());
+            return super.toString() + String.format("%n%n|%-20s|%n|%-20d|%n", "Weight Limit(lbs):", getWeight_limit());
         }
 
         @Override
@@ -279,9 +285,9 @@ public class Bottom_Classes {
     public static class Submarine extends Water_Transportation {
         private int depth;
 
-        public Submarine(int depth,String dock, String loadingTime, String marina, double purchasePrice,
+        public Submarine(int depth,String dock, String loadingTime, String marina, String departureTime, double purchasePrice,
                          double rentalPrice, double averageSpeed, int numPassengers){
-            super(dock,loadingTime,marina, purchasePrice, rentalPrice,averageSpeed,numPassengers);
+            super(dock,loadingTime,marina,departureTime, purchasePrice,rentalPrice,averageSpeed,numPassengers);
             this.depth=depth;
         }
 
@@ -290,7 +296,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
-            return super.toString() + String.format("%n%n|%-20s|%n|%-20s|%n", "Travel-Depth:", getDepth());
+            return super.toString() + String.format("%n%n|%-20s|%n|%-20s|%n", "Travel-Depth(m):", getDepth());
         }
 
         @Override
@@ -302,9 +308,9 @@ public class Bottom_Classes {
     public static class Ship extends Water_Transportation {
         private String hull_size;
 
-        public Ship(String hull_size, String dock, String loadingTime, String marina, double purchasePrice,
+        public Ship(String hull_size, String dock, String loadingTime, String marina, String departureTime, double purchasePrice,
                     double rentalPrice, double averageSpeed, int numPassengers){
-            super(dock,loadingTime,marina,purchasePrice, rentalPrice, averageSpeed,numPassengers);
+            super(dock,loadingTime,marina,departureTime, purchasePrice,rentalPrice,averageSpeed,numPassengers);
             this.hull_size = hull_size;
         }
 
