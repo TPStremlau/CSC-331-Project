@@ -17,14 +17,15 @@ public class Driver {
                 "6:00AM", "10:00AM");
 
         // initialize land instances
-        Bottom_Classes.Car car = new Bottom_Classes.Car(10, 200,
-                120, 6, "Diesel", 4);
-        Bottom_Classes.Train train = new Bottom_Classes.Train(30, 20_000,
-                180, 120, "Electric", "Hamburg Station");
+        Bottom_Classes.Car car = new Bottom_Classes.Car( 10, 200,
+                120, 6, "Diesel", 4,"Rent-A-Car", "9:00AM");
+        Bottom_Classes.Train train = new Bottom_Classes.Train(
+                30, 20_000, 180, 120, "Electric",
+                "Hamburg Station","11:00AM");
         Bottom_Classes.Bus bus = new Bottom_Classes.Bus(20, 2000, 60,
-                40, "Biodiesel", "Rigel Road Stop");
+                40, "Biodiesel", "Rigel Road Stop","10:00AM");
         Bottom_Classes.Bike bike = new Bottom_Classes.Bike(50, 10,
-                20, 1, "None", "UNCW Bike Store");
+                20, 1, "None", "UNCW Bike Store","2:00PM");
 
         // initialize water instances
         Bottom_Classes.Boat boat = new Bottom_Classes.Boat(200, "Dock C", "5 min",
@@ -53,7 +54,7 @@ public class Driver {
         water_list[2] = ship;
 
         System.out.println("Here are all the options:");
-        print_lists(air_list,land_list,water_list);
+        print_lists(air_list, land_list, water_list);
 
         boolean cont_loop = true;
 
@@ -64,11 +65,30 @@ public class Driver {
 
             if (user_input.equalsIgnoreCase("land")) {
                 print_specific_list(land_list);
-                System.out.println();
+                System.out.println("Which land transportation would you like to purchase?");
+                Scanner user_ticket = new Scanner(System.in);
+                String user_input2 = user_ticket.nextLine();
+
+                if (user_input2.equalsIgnoreCase("car")) {
+                    System.out.println(car.toString());
+                    cont_loop = get_land_info(user_input2, car);
+                }
+                if (user_input2.equalsIgnoreCase("train")){
+                    System.out.println(train.toString());
+                    cont_loop = get_land_info(user_input2,train);
+                }
+                if (user_input2.equalsIgnoreCase("bus")){
+                    System.out.println(bus.toString());
+                    cont_loop = get_land_info(user_input2,bus);
+                }
+                if (user_input2.equalsIgnoreCase("bike")){
+                    System.out.println(bike.toString());
+                    cont_loop = get_land_info(user_input2,bike);
+                }
             }
             if (user_input.equalsIgnoreCase("air")) {
                 print_specific_list(air_list);
-                System.out.println("Which transportation would you like to purchase?");
+                System.out.println("Which air transportation would you like to purchase?");
                 Scanner user_ticket = new Scanner(System.in);
                 String user_input2 = user_ticket.nextLine();
 
@@ -119,38 +139,54 @@ public class Driver {
         return (true);
     }
 
-    public static void print_lists(Transportation[] air_list, Transportation[] land_list, Transportation[] water_list) {
-        System.out.println("\nHere are the Air transportation methods:");
-        for (Transportation air_transportation : air_list) {
-            System.out.println(air_transportation.getName());
-            System.out.println(air_transportation);
-        }
-        ;
+    public static boolean get_land_info(String user_choice, Land_Transportation user_class) {
+        System.out.println("Are you sure you want a " + user_choice + " ticket?");
+        Scanner verify_choice = new Scanner(System.in);
+        String user_input3 = verify_choice.nextLine();
+        if (user_input3.equalsIgnoreCase("yes")) {
+            System.out.println("Do you want to rent or purchase a ticket? (Enter rent=rental and purchase=purchase)");
+            Scanner rent_purchase = new Scanner(System.in);
+            String user_input5 = rent_purchase.nextLine();
+            System.out.println("How many tickets would you like to purchase?");
+            Scanner num_tickets = new Scanner(System.in);
+            int user_input4 = num_tickets.nextInt();
+            System.out.println(user_class.get_payment_info(user_input4, user_input5));
+            System.out.println(user_class.get_arrival_info());
 
-        System.out.println("\nHere are the Land transportation methods:");
-        for (Transportation land_transportation : land_list) {
-            System.out.println(land_transportation.getName());
-            System.out.println(land_transportation);
-        }
-        ;
+            return false;
 
-        System.out.println("\nHere are the Water transportation methods:");
-        for (Transportation water_transportation : water_list) {
-            System.out.println(water_transportation.getName());
-            System.out.println(water_transportation);
         }
-        ;
+        return (true);
+
     }
+        public static void print_lists(Transportation[] air_list, Transportation[]land_list, Transportation[]water_list)
+        {
+            System.out.println("\nHere are the Air transportation methods:");
+            for (Transportation air_transportation : air_list) {
+                System.out.println(air_transportation.getName());
+                System.out.println(air_transportation);
+            }
+            ;
 
-    public static void print_specific_list(Transportation[] specific_list) {
-        for (Transportation transportation : specific_list) {
-            System.out.println(transportation.getName());
-            System.out.println(transportation);
+            System.out.println("\nHere are the Land transportation methods:");
+            for (Transportation land_transportation : land_list) {
+                System.out.println(land_transportation.getName());
+                System.out.println(land_transportation);
+            }
+            ;
+
+            System.out.println("\nHere are the Water transportation methods:");
+            for (Transportation water_transportation : water_list) {
+                System.out.println(water_transportation.getName());
+                System.out.println(water_transportation);
+            }
+            ;
+        }
+
+        public static void print_specific_list (Transportation[]specific_list){
+            for (Transportation transportation : specific_list) {
+                System.out.println(transportation.getName());
+                System.out.println(transportation);
+            }
         }
     }
-}
-
-
-
-
-
