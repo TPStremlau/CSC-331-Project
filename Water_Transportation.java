@@ -18,9 +18,15 @@ public class Water_Transportation extends Transportation{
     public void setLoadingTime(String loadingTime) {this.loadingTime=loadingTime;}
     public void setMarina(String marina) { this.marina=marina;}
 
+    @Override
+    public String get_arrival_info(){
+        return "Arrive at " + getMarina() + " at " + getDock();
+    }
+
+    @Override
     public String toString() {
-        return super.toString() + String.format("%25s %10s %25s %10s %25s %10s", "Dock:", getDock(),
-                "Loading Time:", getLoadingTime(), "Marina:", getMarina());
+        return super.toString() + String.format("%n%n|%-15s|%-15s|%-15s|%n|%-15s|%-15s|%-15s|", "Marina:", "Dock:",
+                "Loading Time:", getMarina(), getDock(), getLoadingTime());
     }
 
     @Override
