@@ -7,16 +7,19 @@ public class Driver {
         // initialize air instances
         Bottom_Classes.Plane plane1 = new Bottom_Classes.Plane("Terminal 1", 25, 30.00,
                 400, 200_000, 300.00, 300,
-                "Delta", "RDU", "6:00AM", "10:00AM");
+                "Delta", "RDU", "6:00AM", "8:00AM");
+
         Bottom_Classes.Heli helicopter1 = new Bottom_Classes.Heli(300,
                 60, 5000, 80, 6, "United", "JFK"
-                , "6:00AM", "10:00AM");
+                , "10:00AM", "3:00PM");
+
         Bottom_Classes.Dirigible dirigible1 = new Bottom_Classes.Dirigible(500,
                 30.00, 6000, 50, 15,
-                "Delta", "RDU", "6:00AM", "10:00AM");
+                "Lufthansa", "ILM", "6:00AM", "4:00PM");
+
         Bottom_Classes.Hot_Air_Balloon hotAirBalloon = new Bottom_Classes.Hot_Air_Balloon(2000, 30.00,
-                2000, 15, 8, "Delta", "RDU",
-                "6:00AM", "10:00AM");
+                2000, 15, 8, "Air_Adventures", "HAM",
+                "8:00AM", "9:00PM");
 
 
         // initialize land instances
@@ -149,17 +152,17 @@ public class Driver {
                     switch (user_vehicle.toLowerCase()) {
                         case "boat":
                             System.out.println(boat.toString());
-                            cont_loop = get_info(user_vehicle, plane1);
+                            cont_loop = get_info(user_vehicle, boat);
                             break;
 
                         case "submarine":
                             System.out.println(sub.toString());
-                            cont_loop = get_info(user_vehicle, helicopter1);
+                            cont_loop = get_info(user_vehicle, sub);
                             break;
 
                         case "ship":
                             System.out.println(ship.toString());
-                            cont_loop = get_info(user_vehicle, dirigible1);
+                            cont_loop = get_info(user_vehicle, ship);
                             break;
 
                         default:
@@ -176,7 +179,7 @@ public class Driver {
         System.out.println("Thank you for using the Wilmington Travel Center!");
     }
     public static boolean get_info(String user_choice, Transportation user_class){
-        System.out.println("Are you sure you want a " + user_choice + " ticket?");
+        System.out.println("Are you sure you want a " + user_choice + " ticket?(Yes/No)");
         Scanner verify_choice = new Scanner(System.in);
         String affirm_ticket = verify_choice.nextLine();
 
