@@ -2,20 +2,18 @@ public class Bottom_Classes {
     /**
      * Name: Haley Goldberg and Torin Stremlau
      * Date: 25/10/2024
-     * Purpose: This file contains classes that are subclasses of Transportation and its subclasses Air_Transportation, 
-     * Land_Transportation, and Water_Transportation.
-     * Every individual class constructor passes back arguments for their parent constructors and contains mutators, 
-     * accessors. 
-     * toString(): returns String that gets overridden and combined with toString methods from its parent transportation 
-     * classes to form one long string through polymorphism
-     * getName(): returns String that is the name of the class, (in hindsight) could also have been added as a private 
-     * String in Transportation Class.
-     * get_arrival_info(): returns String with specific instructions on what to do and where to go to "travel"
-     * This method is also used in some parent classes and in this file is only for classes where because of different 
-     * methods of departure, its parent class could not departureLocation and departureTime variables because 
-     * the car and bike subclasses had pickup locations and no set departure times.
+     * Purpose: Contains transportation-specific subclasses that extend either Air_Transportation,
+     * Land_Transportation, or Water_Transportation. Each class implements constructor chaining to initialize
+     * the superclass properties along with its own specific fields.
+     *
+     * Main Methods:
+     * - toString(): Overrides the toString() method to concatenate information from the parent and current class,
+     *               providing a comprehensive summary of transportation details.
+     * - getName(): Provides a string representing the name of each transportation class.
+     * - get_arrival_info(): Generates instructions for departure, utilizing specific details (like location and time)
+     *                       to guide users on where to begin their travel.
      */
-    
+
     // car class
     public static class Car extends Land_Transportation{
         private String pickUpLocation;
@@ -39,7 +37,7 @@ public class Bottom_Classes {
         public int getTrunkSpace() { return this.trunkSpace; }
         public String getPickUpLocation() {return this.pickUpLocation;}
         public String getPickUpTime() {return this.pickUpTime;}
-        
+
         @Override
         public String toString() {
             // format the string in the same format as the other files to make it look better when printing
@@ -51,7 +49,7 @@ public class Bottom_Classes {
         public String get_arrival_info(){
             return "To pick up your car, arrive at " + getPickUpLocation() + " at " + getPickUpTime();
         }
-        
+
         public String getName() {
             return "Car";
         }
@@ -69,7 +67,7 @@ public class Bottom_Classes {
             this.startBusStop = startBusStop;
             this.departureTime = departureTime;
         }
-        
+
         // create mutators and accessors
         public void setDepartureTime(String departureTime) {this.departureTime=departureTime;}
         public void setStartBusStop(String busStop) { this.startBusStop = startBusStop; }
@@ -92,7 +90,7 @@ public class Bottom_Classes {
             return "Bus";
         }
     }
-    
+
     // train class
     public static class Train extends Land_Transportation{
         private String departureStation;
