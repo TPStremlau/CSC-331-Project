@@ -65,5 +65,5 @@ public class Air_Transportation extends Transportation{
     }
     // this will later be Overridden by air transportation subclasses to display the name of the
     // subclasses for the table
-    String getName(){return "";}
+    public String getName(){return "";}
 }
