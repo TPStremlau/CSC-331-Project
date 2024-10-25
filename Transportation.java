@@ -27,19 +27,26 @@ public class Transportation {
 
     @Override
     public String toString(){
-        return String.format("|%-25s|%-25s|%-25s|%-25s|%n|%-25.2f|%-25.2f|%-25.2f|%-25d|","Purchase Price",
-                "Rental Price", "Average Speed","Num of Passengers",getPurchasePrice(),
+        return String.format("|%-15s|%-15s|%-15s|%-15s|%n|%-15.2f|%-15.2f|%-15.2f|%-15d|","Ticket Price",
+                "Rental Price", "Average Speed","Passenger Count",getPurchasePrice(),
                 getRentalPrice(),getAverageSpeed(), getNumPassengers());
     }
+
     public String get_payment_info(int num_passengers, String rent_purchase){
         double price_tickets = 0.0;
         if (rent_purchase.equalsIgnoreCase("rent")){
-            price_tickets = num_passengers*getRentalPrice();
+            price_tickets = num_passengers * getRentalPrice();
         }
         if (rent_purchase.equalsIgnoreCase("purchase")){
-            price_tickets = num_passengers*getPurchasePrice();
+            price_tickets = num_passengers * getPurchasePrice();
         }
         return String.format("%s%s%.2f","Your total cost is: ", "$", price_tickets);
     }
-    String getName(){return "";}
+
+
+    public String get_arrival_info() {
+        return "";
+    }
+
+    public String getName(){return "";};
 }
