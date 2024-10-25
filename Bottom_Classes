@@ -1,9 +1,28 @@
 public class Bottom_Classes {
+    /**
+     * Name: Haley Goldberg and Torin Stremlau
+     * Date: 25/10/2024
+     * Purpose: This file contains classes that are subclasses of Transportation and its subclasses Air_Transportation, 
+     * Land_Transportation, and Water_Transportation.
+     * Every individual class constructor passes back arguments for their parent constructors and contains mutators, 
+     * accessors. 
+     * toString(): returns String that gets overridden and combined with toString methods from its parent transportation 
+     * classes to form one long string through polymorphism
+     * getName(): returns String that is the name of the class, (in hindsight) could also have been added as a private 
+     * String in Transportation Class.
+     * get_arrival_info(): returns String with specific instructions on what to do and where to go to "travel"
+     * This method is also used in some parent classes and in this file is only for classes where because of different 
+     * methods of departure, its parent class could not departureLocation and departureTime variables because 
+     * the car and bike subclasses had pickup locations and no set departure times.
+     */
+    
+    // car class
     public static class Car extends Land_Transportation{
         private String pickUpLocation;
         private int trunkSpace;
         private String pickUpTime;
 
+        // create constructor referencing its super class and passing relevant arguments to super class
         public Car(double purchasePrice, double rentalPrice, double averageSpeed,
                    int numPassengers, String fuelType, int trunkSpace,String pickUpLocation, String pickUpTime) {
             super(purchasePrice, rentalPrice, averageSpeed, numPassengers,fuelType);
@@ -12,16 +31,18 @@ public class Bottom_Classes {
             this.pickUpTime = pickUpTime;
 
         }
+
+        // create mutators and accessors
         public void setPickUpLocation(String pickUpLocation) {this.pickUpLocation = pickUpLocation;}
         public void setPickUpTime(String pickUpTime) {this.pickUpTime=pickUpTime;}
         public void setTrunkSpace(int trunkSpace) { this.trunkSpace = trunkSpace; }
         public int getTrunkSpace() { return this.trunkSpace; }
         public String getPickUpLocation() {return this.pickUpLocation;}
         public String getPickUpTime() {return this.pickUpTime;}
-
-
+        
         @Override
         public String toString() {
+            // format the string in the same format as the other files to make it look better when printing
             return super.toString() + String.format("%n%n|%-20s|%-20s|%-20s|%n|%-20s|%-20s|%-20d|%n",
                     "Pickup location:","Pickup time:", "Trunk Space(m^3): ",getPickUpLocation() ,getPickUpTime(),
                     getTrunkSpace());
@@ -30,22 +51,26 @@ public class Bottom_Classes {
         public String get_arrival_info(){
             return "To pick up your car, arrive at " + getPickUpLocation() + " at " + getPickUpTime();
         }
+        
         public String getName() {
             return "Car";
         }
     }
 
+    // bus class
     public static class Bus extends Land_Transportation{
         private String startBusStop;
         private String departureTime;
 
+        // create constructor referencing its super class and passing relevant arguments to super class
         public Bus(double purchasePrice, double rentalPrice, double averageSpeed,
                    int numPassengers, String fuelType, String startBusStop, String departureTime) {
             super(purchasePrice, rentalPrice, averageSpeed, numPassengers,fuelType);
             this.startBusStop = startBusStop;
             this.departureTime = departureTime;
-
         }
+        
+        // create mutators and accessors
         public void setDepartureTime(String departureTime) {this.departureTime=departureTime;}
         public void setStartBusStop(String busStop) { this.startBusStop = startBusStop; }
         public String getDepartureTime() {return this.departureTime;}
@@ -53,6 +78,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
+            // format the string in the same format as the other files to make it look better when printing
             return super.toString() + String.format("%n%n|%-20s|%-20s|%n|%-20s|%-20s|%n", "Starting Stop: ",
                     "Departure time:", getStartBusStop(), getDepartureTime());
         }
@@ -66,16 +92,21 @@ public class Bottom_Classes {
             return "Bus";
         }
     }
+    
+    // train class
     public static class Train extends Land_Transportation{
         private String departureStation;
         private String departureTime;
 
+        // create constructor referencing its super class and passing relevant arguments to super class
         public Train(double purchasePrice, double rentalPrice, double averageSpeed,
                      int numPassengers, String fuelType, String departureStation, String departureTime) {
             super(purchasePrice, rentalPrice, averageSpeed, numPassengers,fuelType);
             this.departureTime = departureTime;
             this.departureStation = departureStation;
         }
+
+        // create mutators and accessors
         public void setDepartureTime(String departureTime){this.departureTime=departureTime;}
         public void setDepartureStation(String departureStation) { this.departureStation = departureStation; }
         public String getDepartureTime() {return this.departureTime;}
@@ -83,6 +114,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
+            // format the string in the same format as the other files to make it look better when printing
             return super.toString() + String.format("%n%n|%-20s|%-20s|%n|%-20s|%-20s|%n", "Departure Stop:",
                     "Departure time:", getDepartureStation(), getDepartureTime());
         }
@@ -97,10 +129,12 @@ public class Bottom_Classes {
         }
     }
 
+    // bike class
     public static class Bike extends Land_Transportation{
         private String pickupLocation;
         private String pickupTime;
 
+        // create constructor referencing its super class and passing relevant arguments to super class
         public Bike(double purchasePrice, double rentalPrice, double averageSpeed,
                     int numPassengers, String fuelType, String pickupLocation,String pickupTime) {
             super(purchasePrice, rentalPrice, averageSpeed, numPassengers,fuelType);
@@ -108,6 +142,8 @@ public class Bottom_Classes {
             this.pickupTime = pickupTime;
 
         }
+
+        // create mutators and accessors
         public void setPickupTime(String pickupTime) {this.pickupTime=pickupTime;}
         public void setPickupLocation(String pickupLocation) { this.pickupLocation = pickupLocation; }
         public String getPickupTime() {return this.pickupTime;}
@@ -115,6 +151,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
+            // format the string in the same format as the other files to make it look better when printing
             return super.toString() + String.format("%n%n|%-20s|%-20s|%n|%-20s|%-20s|%n", "Pickup Location:",
                     "Pickup time:", getPickupLocation(), getPickupTime());
         }
@@ -129,19 +166,23 @@ public class Bottom_Classes {
         }
     }
 
+    // plane class
     public static class Plane extends Air_Transportation {
         private String terminal;
         private int carryOnLimit;
         private double maxLuggageWeight;
 
+        // create constructor referencing its super class and passing relevant arguments to super class
         public Plane(String terminal,int carryOnLimit,double maxLuggageWeight,double purchasePrice, double rentalPrice,
-                     double averageSpeed, int numPassengers, String airline, String airport, String departureTime, String arrivalTime){
+                     double averageSpeed, int numPassengers, String airline, String airport, String departureTime,
+                     String arrivalTime){
             super(airport, airline, departureTime, arrivalTime, purchasePrice, rentalPrice, averageSpeed, numPassengers);
             this.terminal = terminal;
             this.carryOnLimit = carryOnLimit;
             this.maxLuggageWeight = maxLuggageWeight;
         }
 
+        // create mutators and accessors
         public String getTerminal() {return this.terminal;}
         public int getCarryOnLimit() {return this.carryOnLimit;}
         public double getMaxLuggageWeight() {return this.maxLuggageWeight;}
@@ -157,6 +198,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
+            // format the string in the same format as the other files to make it look better when printing
             return super.toString() + String.format("%n%n|%-20s|%-20s|%n|%-20s|%-20s|%n", "Departure Terminal:",
                     "Carry-on Limit(lbs):", getTerminal(), getCarryOnLimit());
         }
@@ -167,9 +209,11 @@ public class Bottom_Classes {
         }
     }
 
+    // heli class
     public static class Heli extends Air_Transportation {
         private int weight_limit;
 
+        // create constructor referencing its super class and passing relevant arguments to super class
         public Heli(int weight_limit, double purchasePrice,
                     double rentalPrice, double averageSpeed, int numPassengers, String airline, String airport,
                     String departureTime, String arrivalTime){
@@ -177,6 +221,8 @@ public class Bottom_Classes {
                     numPassengers);
             this.weight_limit = weight_limit;
         }
+
+        // create mutators and accessors
         public void setWeight_limit(int weight_limit) { this.weight_limit = weight_limit; }
         public int getWeight_limit() { return this.weight_limit; }
 
@@ -187,6 +233,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
+            // format the string in the same format as the other files to make it look better when printing
             return super.toString() + String.format("%n%n|%-20s|%n|%-20d|%n", "Weight-Limit(lbs):", getWeight_limit());
         }
 
@@ -196,9 +243,11 @@ public class Bottom_Classes {
         }
     }
 
+    // dirigible class
     public static class Dirigible extends Air_Transportation {
         private int volume;
 
+        // create constructor referencing its super class and passing relevant arguments to super class
         public Dirigible(int volume, double purchasePrice,
                          double rentalPrice, double averageSpeed, int numPassengers, String airline, String airport,
                          String departureTime, String arrivalTime) {
@@ -207,6 +256,7 @@ public class Bottom_Classes {
             this.volume = volume;
         }
 
+        // create mutators and accessors
         public void setVolume(int volume) { this.volume = volume; }
 
         public int getVolume() { return this.volume; }
@@ -218,6 +268,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
+            // format the string in the same format as the other files to make it look better when printing
             return super.toString() + String.format("%n%n|%-20s|%n|%-20d|%n", "Volume/Size(m^3):", getVolume());
         }
 
@@ -228,9 +279,11 @@ public class Bottom_Classes {
 
     }
 
+    // hot air balloon class
     public static class Hot_Air_Balloon extends Air_Transportation {
         private int max_altitude;
 
+        // create constructor referencing its super class and passing relevant arguments to super class
         public Hot_Air_Balloon(int max_altitude, double purchasePrice,
                                double rentalPrice, double averageSpeed, int numPassengers, String airline, String airport,
                                String departureTime, String arrivalTime) {
@@ -239,6 +292,7 @@ public class Bottom_Classes {
             this.max_altitude = max_altitude;
         }
 
+        // create mutators and accessors
         public void setMax_altitude(int max_altitude) {
             this.max_altitude = max_altitude;
         }
@@ -249,6 +303,7 @@ public class Bottom_Classes {
 
         @Override
         public String toString() {
+            // format the string in the same format as the other files to make it look better when printing
             return super.toString() + String.format("%n%n|%-20s|%n|%-20d|%n", "Max-Altitude(m):", getMax_altitude());
         }
 
@@ -259,20 +314,24 @@ public class Bottom_Classes {
 
     }
 
+    // boat class
     public static class Boat extends Water_Transportation {
         private int weight_limit;
 
+        // create constructor referencing its super class and passing relevant arguments to super class
         public Boat(int weight_limit,String dock, String loadingTime, String marina, String departureTime, double purchasePrice,
                     double rentalPrice, double averageSpeed, int numPassengers){
             super(dock,loadingTime,marina,departureTime, purchasePrice,rentalPrice,averageSpeed,numPassengers);
             this.weight_limit = weight_limit;
         }
 
+        // create mutators and accessors
         public void setWeight_limit(int weight_limit) { this.weight_limit = weight_limit; }
         public int getWeight_limit() { return this.weight_limit; }
 
         @Override
         public String toString() {
+            // format the string in the same format as the other files to make it look better when printing
             return super.toString() + String.format("%n%n|%-20s|%n|%-20d|%n", "Weight Limit(lbs):", getWeight_limit());
         }
 
@@ -282,20 +341,24 @@ public class Bottom_Classes {
         }
     }
 
+    // submarine class
     public static class Submarine extends Water_Transportation {
         private int depth;
 
+        // create constructor referencing its super class and passing relevant arguments to super class
         public Submarine(int depth,String dock, String loadingTime, String marina, String departureTime, double purchasePrice,
                          double rentalPrice, double averageSpeed, int numPassengers){
             super(dock,loadingTime,marina,departureTime, purchasePrice,rentalPrice,averageSpeed,numPassengers);
             this.depth=depth;
         }
 
+        // create mutators and accessors
         public void setDepth(int depth) { this.depth = depth; }
         public int getDepth() { return this.depth; }
 
         @Override
         public String toString() {
+            // format the string in the same format as the other files to make it look better when printing
             return super.toString() + String.format("%n%n|%-20s|%n|%-20s|%n", "Travel-Depth(m):", getDepth());
         }
 
@@ -305,20 +368,24 @@ public class Bottom_Classes {
         }
     }
 
+    // ship class
     public static class Ship extends Water_Transportation {
         private String hull_size;
 
+        // create constructor referencing its super class and passing relevant arguments to super class
         public Ship(String hull_size, String dock, String loadingTime, String marina, String departureTime, double purchasePrice,
                     double rentalPrice, double averageSpeed, int numPassengers){
             super(dock,loadingTime,marina,departureTime, purchasePrice,rentalPrice,averageSpeed,numPassengers);
             this.hull_size = hull_size;
         }
 
+        // create mutators and accessors
         public void setHull_size(String hull_size) { this.hull_size = hull_size; }
         public String getHull_size() { return this.hull_size; }
 
         @Override
         public String toString() {
+            // format the string in the same format as the other files to make it look better when printing
             return super.toString() + String.format("%n%n|%-20s|%n|%-20s|%n", "Hull Size:", getHull_size());
         }
 
