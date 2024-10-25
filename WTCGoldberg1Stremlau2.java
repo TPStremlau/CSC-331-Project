@@ -18,7 +18,7 @@
 
 import java.util.Scanner;
 
-public class Driver {
+public class WTCGoldberg1Stremlau2 {
 
     public static void main(String[] args) {
         // initialize air instances
@@ -256,20 +256,35 @@ public class Driver {
                             "\nEnter a different number: ");
                 }
 
+                // Prompt user for number of people again
                 num_tickets = new Scanner(System.in);
                 ticket_amount = num_tickets.nextInt();
             }
 
-            System.out.println("Do you want to rent the whole vehicle or " +
-                    "purchase a ticket for a seat?\n(Rent/Purchase)");
-            Scanner rent_purchase = new Scanner(System.in);
-            rent_or_purchase = rent_purchase.nextLine();
+                System.out.println("Do you want to rent the whole vehicle or " +
+                        "purchase a ticket for a seat?\n(Rent/Purchase)");
+                Scanner rent_purchase = new Scanner(System.in);
+                rent_or_purchase = rent_purchase.nextLine();
 
+                // Check for misspelling or Rent or Purchase
+                while (true) {
+                    if (rent_or_purchase.equalsIgnoreCase("rent") ||
+                            rent_or_purchase.equalsIgnoreCase("purchase")) {
+                        break;
+                    } else {
+                        System.out.println("Invalid Input! Try Again:");
+                        rent_or_purchase = rent_purchase.nextLine();
+                    }
+            }
+
+            // Print the payment and arrival information
             System.out.println(user_class.get_payment_info(ticket_amount, rent_or_purchase));
             System.out.println("\n"+user_class.get_arrival_info());
 
+            // end the loop in main method by returning false
             return false;
         }
+        // if yes is not entered continue in main method loop.
         return (true);
     }
 
