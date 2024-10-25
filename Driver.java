@@ -1,9 +1,26 @@
+/**
+ * Name: Haley Goldberg, Torin Stremlau
+ * Date: 25/10/2024
+ * Purpose: This file contains the driver for the entire program.
+ * The main method will create instances of each specific transportation class (subclasses of Transportation)
+ * and allow the user to select a transportation mode and type.
+ * The user will be prompted for their choice, and invalid input will result in re-prompting within the while loop.
+ *
+ * Methods:
+ * - get_info(String, Transportation): Processes the user's specific transportation choice and confirms it.
+ *      Allows the user to select the number of tickets or to rent the entire vehicle, then outputs
+ *      payment and arrival information based on their choice.
+ * - print_lists(Transportation[], Transportation[], Transportation[]): Prints tables for each transportation mode (air, land, water),
+ *      displaying details to help the user choose a transportation type.
+ * - print_specific_list(Transportation[]): Prints a table displaying the information of each transportation
+ *      instance in a specific mode (e.g., all air or all water options).
+ */
+
 import java.util.Scanner;
 
 public class Driver {
 
     public static void main(String[] args) {
-
         // initialize air instances
         Bottom_Classes.Plane plane1 = new Bottom_Classes.Plane("Terminal 1", 25,
                 30.00, 400, 200_000, 300.00, 300,
@@ -51,42 +68,55 @@ public class Driver {
                 "Hamburg Port", "12:00PM", 500, 2_000_000,
                 50, 5000);
 
+
+        // Create Lists to store the transportation types by category
+        // Create list for air types
         Transportation[] air_list = new Transportation[4];
         air_list[0] = plane1;
         air_list[1] = helicopter1;
         air_list[2] = dirigible1;
         air_list[3] = hotAirBalloon;
 
+        // Create list for land types
         Transportation[] land_list = new Transportation[4];
         land_list[0] = car;
         land_list[1] = train;
         land_list[2] = bus;
         land_list[3] = bike;
 
+        // Create list for water types
         Transportation[] water_list = new Transportation[3];
         water_list[0] = boat;
         water_list[1] = sub;
         water_list[2] = ship;
 
+        // Print all lists to help user choose category
         print_lists(air_list, land_list, water_list);
 
+        // Create input variable
         Scanner user_transportation = new Scanner(System.in);
 
+        // Create empty string to store vehicle choice
         String user_vehicle = null;
 
+        // Set loop condition to trye
         boolean cont_loop = true;
 
         while (cont_loop) {
+            // Prompt user for category
             System.out.println("\nWhat type of transportation do you want to use? (Air,Land,Water)");
             Scanner trans_type = new Scanner(System.in);
             String trans_type_choice = trans_type.nextLine();
 
+            // Switch case to determine what category was chosen
             switch (trans_type_choice.toLowerCase()) {
                 case "land":
+                    // Prompt user for specific transportation type
                     print_specific_list(land_list);
                     System.out.println("Which transportation would you like to purchase? (Car/Bus/Train/Bike)");
                     user_vehicle = user_transportation.nextLine();
 
+                    // Determine what user input was chosen
                     switch (user_vehicle.toLowerCase()) {
                         case "car":
                             System.out.println("Here is information about the Car:");
@@ -118,11 +148,13 @@ public class Driver {
                     break;
 
                 case "air":
+                    // Prompt user for specific transportation type
                     print_specific_list(air_list);
                     System.out.println("Which transportation would you like to purchase? " +
                             "(Plane/Helicopter/Dirigible/Hot Air Balloon)");
                     user_vehicle = user_transportation.nextLine();
 
+                    // Determine what user input was chosen
                     switch (user_vehicle.toLowerCase()) {
                         case "plane":
                             System.out.println("Here is information about the Plane:");
@@ -154,10 +186,12 @@ public class Driver {
                     break;
 
                 case "water":
+                    // Prompt user for specific transportation type
                     print_specific_list(water_list);
                     System.out.println("Which transportation would you like to purchase? (Boat/Submarine/Ship)");
                     user_vehicle = user_transportation.nextLine();
 
+                    // Determine what user input was chosen
                     switch (user_vehicle.toLowerCase()) {
                         case "boat":
                             System.out.println("Here is information about the Boat:");
@@ -190,6 +224,14 @@ public class Driver {
 
         System.out.println("Thank you for using the Wilmington Travel Center!");
     }
+
+    /**
+     * Process the user's transportation choice, confirming and requesting ticket or rental details.
+     *
+     * @param user_choice The transportation type chosen by the user
+     * @param user_class The specific transportation instance selected
+     * @return False if the user confirms and the transaction is complete; True if user declines and wants to continue
+     */
     public static boolean get_info(String user_choice, Transportation user_class){
         System.out.println("Are you sure you want to use a " + user_choice + " for your travels?(Yes/No)");
         Scanner verify_choice = new Scanner(System.in);
@@ -231,7 +273,13 @@ public class Driver {
         return (true);
     }
 
-
+    /**
+     * Prints a categorized list of all transportation types (air, land, water) to help user selection.
+     *
+     * @param air_list List of air transportation options
+     * @param land_list List of land transportation options
+     * @param water_list List of water transportation options
+     */
     public static void print_lists(Transportation[] air_list, Transportation[] land_list, Transportation[] water_list) {
         System.out.println("\nHere are all Transportation options:");
 
@@ -246,6 +294,11 @@ public class Driver {
 
     }
 
+    /**
+     * Displays detailed information for each transportation type within a specific category (e.g., all air options).
+     *
+     * @param specific_list List of transportation options in a given mode
+     */
     public static void print_specific_list(Transportation[] specific_list) {
         System.out.printf("\n|%-20s|%-20s|%-20s|%-20s|%-20s|\n",
                 "Transportation:", "Ticket Price:", "Rental Price:", "Average Speed(mph):", "Passenger Amount:");
