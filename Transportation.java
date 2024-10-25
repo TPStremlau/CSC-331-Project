@@ -1,5 +1,3 @@
-
-
 public class Transportation {
     private double purchasePrice;
     private double rentalPrice;
@@ -35,7 +33,7 @@ public class Transportation {
     public String get_payment_info(int num_passengers, String rent_purchase){
         double price_tickets = 0.0;
         if (rent_purchase.equalsIgnoreCase("rent")){
-            price_tickets = num_passengers * getRentalPrice();
+            price_tickets = getRentalPrice();
         }
         if (rent_purchase.equalsIgnoreCase("purchase")){
             price_tickets = num_passengers * getPurchasePrice();
