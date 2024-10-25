@@ -5,8 +5,8 @@ public class Driver {
     public static void main(String[] args) {
 
         // initialize air instances
-        Bottom_Classes.Plane plane1 = new Bottom_Classes.Plane("Terminal 1", 25, 30.00,
-                400, 200_000, 300.00, 300,
+        Bottom_Classes.Plane plane1 = new Bottom_Classes.Plane("Terminal 1", 25,
+                30.00, 400, 200_000, 300.00, 300,
                 "Delta", "RDU", "6:00AM", "8:00AM");
 
         Bottom_Classes.Heli helicopter1 = new Bottom_Classes.Heli(300,
@@ -17,9 +17,9 @@ public class Driver {
                 30.00, 6000, 50, 15,
                 "Lufthansa", "ILM", "6:00AM", "4:00PM");
 
-        Bottom_Classes.Hot_Air_Balloon hotAirBalloon = new Bottom_Classes.Hot_Air_Balloon(2000, 30.00,
-                2000, 15, 8, "Air_Adventures", "HAM",
-                "8:00AM", "9:00PM");
+        Bottom_Classes.Hot_Air_Balloon hotAirBalloon = new Bottom_Classes.Hot_Air_Balloon(2000,
+                30.00, 2000, 15, 8, "Air_Adventures",
+                "HAM", "8:00AM", "9:00PM");
 
 
         // initialize land instances
@@ -34,20 +34,22 @@ public class Driver {
         Bottom_Classes.Bus bus = new Bottom_Classes.Bus(20, 2000, 60,
                 40, "Biodiesel", "Rigel Road Stop", "12:00PM");
 
-        Bottom_Classes.Bike bike = new Bottom_Classes.Bike(50, 10,
+        Bottom_Classes.Bike bike = new Bottom_Classes.Bike(0, 10,
                 20, 1, "None", "UNCW Bike Store", "2:00PM");
 
 
         // initialize water instances
         Bottom_Classes.Boat boat = new Bottom_Classes.Boat(200, "Dock C", "5 min",
-                "West View Yacht Center", 20, 500, 40,
+                "West View Marina", "6:00AM", 20, 500, 40,
                 12);
 
         Bottom_Classes.Submarine sub = new Bottom_Classes.Submarine(200, "Dock A", "50min",
-                "Carolina Yacht Club", 4000, 1_200_000, 35, 40);
+                "Carolina Yacht Club",  "8:00AM", 4000, 1_200_000,
+                35, 40);
 
         Bottom_Classes.Ship ship = new Bottom_Classes.Ship("Large", "Dock G", "2 Days",
-                "Hamburg Port", 500, 2_000_000, 50, 5000);
+                "Hamburg Port", "12:00PM", 500, 2_000_000,
+                50, 5000);
 
         Transportation[] air_list = new Transportation[4];
         air_list[0] = plane1;
@@ -76,7 +78,7 @@ public class Driver {
         boolean cont_loop = true;
 
         while (cont_loop) {
-            System.out.println("What type of transportation do you want to use: land, air, or water?");
+            System.out.println("\nWhat type of transportation do you want to use? A(Air,Land,Water)");
             Scanner trans_type = new Scanner(System.in);
             String trans_type_choice = trans_type.nextLine();
 
@@ -88,21 +90,25 @@ public class Driver {
 
                     switch (user_vehicle.toLowerCase()) {
                         case "car":
+                            System.out.println("Here is information about the Car:");
                             System.out.println(car);
                             cont_loop = get_info(user_vehicle, car);
                             break;
 
                         case "bus":
+                            System.out.println("Here is information about the Bus:");
                             System.out.println(bus.toString());
                             cont_loop = get_info(user_vehicle, bus);
                             break;
 
                         case "train":
+                            System.out.println("Here is information about the Train:");
                             System.out.println(train.toString());
                             cont_loop = get_info(user_vehicle, train);
                             break;
 
                         case "bike":
+                            System.out.println("Here is information about the Bike:");
                             System.out.println(bike.toString());
                             cont_loop = get_info(user_vehicle, bike);
                             break;
@@ -120,21 +126,25 @@ public class Driver {
 
                     switch (user_vehicle.toLowerCase()) {
                         case "plane":
+                            System.out.println("Here is information about the Plane:");
                             System.out.println(plane1.toString());
                             cont_loop = get_info(user_vehicle, plane1);
                             break;
 
                         case "helicopter":
+                            System.out.println("Here is information about the Helicopter:");
                             System.out.println(helicopter1.toString());
                             cont_loop = get_info(user_vehicle, helicopter1);
                             break;
 
                         case "dirigible":
+                            System.out.println("Here is information about the Dirigible:");
                             System.out.println(dirigible1.toString());
                             cont_loop = get_info(user_vehicle, dirigible1);
                             break;
 
                         case "hot air balloon":
+                            System.out.println("Here is information about the Hot Air Balloon:");
                             System.out.println(hotAirBalloon.toString());
                             cont_loop = get_info(user_vehicle, hotAirBalloon);
                             break;
@@ -151,16 +161,19 @@ public class Driver {
 
                     switch (user_vehicle.toLowerCase()) {
                         case "boat":
+                            System.out.println("Here is information about the Boat:");
                             System.out.println(boat.toString());
                             cont_loop = get_info(user_vehicle, boat);
                             break;
 
                         case "submarine":
+                            System.out.println("Here is information about the Submarine:");
                             System.out.println(sub.toString());
                             cont_loop = get_info(user_vehicle, sub);
                             break;
 
                         case "ship":
+                            System.out.println("Here is information about the Ship:");
                             System.out.println(ship.toString());
                             cont_loop = get_info(user_vehicle, ship);
                             break;
@@ -189,38 +202,35 @@ public class Driver {
 
             String rent_or_purchase = null;
 
-            if (user_class.getName().equalsIgnoreCase("Bike")) {
-                rent_or_purchase = "rent";
-                System.out.println("Bikes only have one seat, so you can only rent them.");
+            System.out.println("How many people are you travelling with?");
+            Scanner num_tickets = new Scanner(System.in);
+            ticket_amount = num_tickets.nextInt();
+
+            while (ticket_amount > user_class.getNumPassengers() || ticket_amount < 1) {
+                if (ticket_amount < 1) {
+                    System.out.print("\nEnter a value greater than or equal to 1: ");
+
+                } else {
+                    System.out.print("\nYou are requesting more tickets then there are seats.\n" +
+                            "Enter a different number: ");
+                }
+
+                num_tickets = new Scanner(System.in);
+                ticket_amount = num_tickets.nextInt();
             }
 
-            else{
-                System.out.println("Do you want to rent the vehicle or purchase a ticket for a seat?\n(Rent/Purchase)");
-                Scanner rent_purchase = new Scanner(System.in);
-                rent_or_purchase = rent_purchase.nextLine();
-            }
+            System.out.println("Do you want to rent the whole vehicle or " +
+                    "purchase a ticket for a seat?\n(Rent/Purchase)");
+            Scanner rent_purchase = new Scanner(System.in);
+            rent_or_purchase = rent_purchase.nextLine();
+
 
             if (rent_or_purchase.equalsIgnoreCase("purchase")) {
-                System.out.println("How many tickets would you like to purchase?");
-                Scanner num_tickets = new Scanner(System.in);
-                ticket_amount = num_tickets.nextInt();
 
-                while (ticket_amount > user_class.getNumPassengers() || ticket_amount < 1) {
-                    if (ticket_amount < 1) {
-                        System.out.print("\nEnter a value greater than or equal to 1: ");
-
-                    } else {
-                        System.out.print("\nYou are requesting more tickets then there are seats.\n" +
-                                "Enter a different number: ");
-                    }
-
-                    num_tickets = new Scanner(System.in);
-                    ticket_amount = num_tickets.nextInt();
-                }
             }
 
             System.out.println(user_class.get_payment_info(ticket_amount, rent_or_purchase));
-            System.out.println(user_class.get_arrival_info());
+            System.out.println("\n"+user_class.get_arrival_info());
 
             return false;
 
@@ -230,36 +240,31 @@ public class Driver {
 
 
     public static void print_lists(Transportation[] air_list, Transportation[] land_list, Transportation[] water_list) {
-        System.out.println("\nHere are the Air transportation methods:\n");
-        for (Transportation air_transportation : air_list) {
-            System.out.println("|" + air_transportation.getName() + " Info|");
-            System.out.println(air_transportation);
-        }
-        ;
+        System.out.println("\nHere are all Transportation options:");
 
-        System.out.println("\nHere are the Land transportation methods:\n");
-        for (Transportation land_transportation : land_list) {
-            System.out.println("|" + land_transportation.getName() + " Info|");
-            System.out.println(land_transportation);
-        }
-        ;
+        System.out.printf("\n|%-20s|", "Air Transportation");
+        print_specific_list(air_list);
 
-        System.out.println("\nHere are the Water transportation methods:\n");
-        for (Transportation water_transportation : water_list) {
-            System.out.println("|" + water_transportation.getName() + " Info|");
-            System.out.println(water_transportation);
-        }
-        ;
+        System.out.printf("\n|%-20s|", "Land Transportation");
+        print_specific_list(land_list);
+
+        System.out.printf("\n|%-20s|", "Water Transportation");
+        print_specific_list(water_list);
+
     }
 
     public static void print_specific_list(Transportation[] specific_list) {
+        System.out.printf("\n|%-20s|%-20s|%-20s|%-20s|%-20s|\n",
+                "Transportation:", "Ticket Price:", "Rental Price:", "Average Speed(mph):", "Passenger Amount:");
         for (Transportation transportation : specific_list) {
-            System.out.println("Here is the information for: " + transportation.getName());
-            System.out.println("|" + transportation.getName() + " Info|");
-            System.out.println(transportation);
+            System.out.printf("|%-20s|%-20s|%-20s|%-20s|%-20s|%n", transportation.getName(),
+                    transportation.getPurchasePrice(), transportation.getRentalPrice(),
+                    transportation.getAverageSpeed(), transportation.getNumPassengers()
+            );
+        }
         }
     }
-}
+
 
 
 
